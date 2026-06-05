@@ -1,0 +1,841 @@
+/* Puttery.com global navigation — matched to live site styles */
+/* Requires Stolzl via Adobe Fonts: https://use.typekit.net/fxe5ovc.css */
+
+:root {
+  --puttery-nav-black: #010000;
+  --puttery-nav-red: #e63e62;
+  --puttery-nav-white: #ffffff;
+  /* Layout — 4px grid (MDS); heights match stacked header + location bar */
+  --puttery-header-height: 96px;
+  --puttery-location-bar-height: 68px;
+  --puttery-container-max: 91.875rem;
+  --puttery-container-padding-x: 32px;
+  --puttery-logo-height: 48px;
+}
+
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden-focusable:focus {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--puttery-nav-white);
+  color: var(--puttery-nav-black);
+  font-family: 'stolzl', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: 2px solid var(--puttery-nav-black);
+}
+
+body.has-puttery-nav {
+  padding-top: var(--puttery-header-offset, var(--puttery-header-height));
+}
+
+.site-header.puttery-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.site-header.puttery-nav nav#header {
+  background-color: var(--puttery-nav-black);
+  z-index: 99;
+}
+
+.site-header.puttery-nav nav#header .container {
+  max-width: var(--puttery-container-max);
+  margin: 0 auto;
+  padding: 24px var(--puttery-container-padding-x);
+}
+
+.site-header.puttery-nav .row.head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(8px, 1.5vw, 16px);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header.puttery-nav .logo {
+  width: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: center;
+}
+
+.site-header.puttery-nav .logo .navbar-brand {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header.puttery-nav nav#header .row .logo .navbar-brand img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: var(--puttery-logo-height);
+}
+
+.site-header.puttery-nav .mob-none {
+  flex: 1 1 0;
+  width: auto;
+  display: none;
+  min-width: 0;
+}
+
+.site-header.puttery-nav .flex-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.5vw, 24px);
+  width: 100%;
+  min-width: 0;
+}
+
+.site-header.puttery-nav .header-location-inner.location {
+  flex: 1 1 10rem;
+  min-width: 0;
+  max-width: 100%;
+  margin-right: 0;
+  color: var(--puttery-nav-white);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.site-header.puttery-nav .location-name.only-one {
+  display: block;
+  min-width: 0;
+  padding-right: 0;
+  position: relative;
+}
+
+.site-header.puttery-nav .location-name,
+.site-header.puttery-nav .location-name a {
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 1.25rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.site-header.puttery-nav .location-name.active-location a {
+  color: var(--puttery-nav-white);
+  text-decoration: none;
+}
+
+.site-header.puttery-nav .schedule-direction {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.site-header.puttery-nav .schedule-direction .schedule {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px 12px;
+  margin-top: 4px;
+  min-width: 0;
+}
+
+.site-header.puttery-nav .schedule-icon,
+.site-header.puttery-nav .direction {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'stolzl', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--puttery-nav-white);
+}
+
+.site-header.puttery-nav .schedule-icon {
+  gap: 4px;
+}
+
+.site-header.puttery-nav .schedule-icon img {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.site-header.puttery-nav .schedule-icon strong {
+  font-weight: 700;
+}
+
+.site-header.puttery-nav .header-location-inner .direction {
+  margin-left: 0;
+  gap: 4px;
+}
+
+.site-header.puttery-nav .direction-pin {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+.site-header.puttery-nav .direction a {
+  color: var(--puttery-nav-white);
+  text-decoration: underline;
+  font-family: 'stolzl', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.site-header.puttery-nav .schedule-direction.hidden {
+  display: none;
+}
+
+.site-header.puttery-nav #navbar,
+.site-header.puttery-nav .navbar-collapse {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 0;
+  min-width: 0;
+}
+
+.site-header.puttery-nav #menu-main-menu,
+.site-header.puttery-nav .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  max-width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.site-header.puttery-nav #menu-main-menu > .nav-item {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  font-size: 0;
+  line-height: 1rem;
+  padding-left: 0;
+}
+
+.site-header.puttery-nav #menu-main-menu > .nav-item:last-child > .nav-link {
+  padding-right: 0;
+}
+
+.site-header.puttery-nav #menu-main-menu > .nav-item > .nav-link {
+  display: inline-block;
+  padding: 0 8px;
+  color: var(--puttery-nav-white);
+  font-family: 'stolzl', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.site-header.puttery-nav #menu-main-menu > .nav-item > .nav-link::before {
+  content: attr(title);
+  display: block;
+  font-family: 'stolzl', sans-serif;
+  font-weight: 500;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.site-header.puttery-nav #menu-main-menu > .nav-item > .nav-link:hover,
+.site-header.puttery-nav #menu-main-menu > .nav-item > .nav-link:focus {
+  font-weight: 500;
+}
+
+.site-header.puttery-nav .nav-link.dropdown-toggle-custom .caret {
+  display: inline-block;
+  width: 14px;
+  height: 12px;
+  margin-left: 2px;
+  background-image: url("images/angle-down-wt.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+  vertical-align: middle;
+}
+
+.site-header.puttery-nav .nav-link.dropdown-toggle-custom:hover .caret {
+  background-image: url("images/angle-down.svg");
+}
+
+.site-header.puttery-nav #menu-main-menu .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  max-width: 200px;
+  width: 100% !important;
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  background: var(--puttery-nav-red);
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 100;
+}
+
+.site-header.puttery-nav #menu-main-menu .dropdown-menu .nav-item {
+  width: 100%;
+}
+
+.site-header.puttery-nav #menu-main-menu .dropdown-menu .nav-link {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  color: var(--puttery-nav-white) !important;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left !important;
+}
+
+.site-header.puttery-nav #menu-main-menu .dropdown-menu .nav-link:hover,
+.site-header.puttery-nav #menu-main-menu .dropdown-menu .nav-link:focus {
+  background: var(--puttery-nav-white);
+  color: var(--puttery-nav-red) !important;
+}
+
+.site-header.puttery-nav #menu-main-menu .nav-item.dropdown:hover .dropdown-menu,
+.site-header.puttery-nav #menu-main-menu .nav-item.dropdown.is-open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.site-header.puttery-nav .flex-menu .reservation {
+  flex: 0 0 auto;
+  margin-left: 0;
+}
+
+.site-header.puttery-nav .btn,
+.mobile-expanded-menu .btn {
+  display: inline-block;
+  border-radius: 50px !important;
+  font-family: 'stolzl', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  padding: 12px 32px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 2px solid transparent;
+  cursor: pointer;
+  letter-spacing: normal;
+}
+
+.site-header.puttery-nav .btn-white,
+.site-header.puttery-nav .location-header .btn-white {
+  background-color: var(--puttery-nav-white);
+  border-color: var(--puttery-nav-white);
+  color: var(--puttery-nav-black);
+}
+
+.site-header.puttery-nav .btn-pink,
+.mobile-expanded-menu .btn-pink {
+  background-color: var(--puttery-nav-red);
+  border-color: var(--puttery-nav-red);
+  color: var(--puttery-nav-white);
+}
+
+.site-header.puttery-nav .flex-menu .reservation .btn {
+  background: var(--puttery-nav-red);
+  border-color: var(--puttery-nav-red);
+  color: var(--puttery-nav-white);
+}
+
+.site-header.puttery-nav .flex-menu .reservation .btn:hover {
+  background: var(--puttery-nav-white) !important;
+  border-color: var(--puttery-nav-white) !important;
+  color: var(--puttery-nav-red) !important;
+}
+
+.site-header.puttery-nav .reservation-mobile {
+  display: none;
+  flex: 0 0 auto;
+  padding: 0;
+}
+
+.site-header.puttery-nav .reservation-mobile > a {
+  display: flex;
+  align-items: center;
+  color: var(--puttery-nav-white);
+  font-family: 'stolzl', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.site-header.puttery-nav .reservation-mobile > a img {
+  height: 32px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.site-header.puttery-nav .navbar-toggler {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 2.1875rem;
+  padding: 0;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.site-header.puttery-nav .navbar-toggler-icon {
+  display: inline-block;
+  width: 36px;
+  height: 16px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='14'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%23FFF' stroke-linecap='round' stroke-width='3'%3E%3Cpath d='M32.582 1.725H1.561M32.582 12.431H10.674'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.site-header.puttery-nav .location-header {
+  display: none;
+  align-items: center;
+  width: 100%;
+  height: var(--puttery-location-bar-height);
+  background-color: var(--puttery-nav-red);
+  color: var(--puttery-nav-white);
+  position: fixed;
+  top: var(--puttery-header-height);
+  left: 0;
+  z-index: 98;
+}
+
+.site-header.puttery-nav .location-header .container {
+  max-width: var(--puttery-container-max);
+  margin: 0 auto;
+  padding: 0 var(--puttery-container-padding-x);
+}
+
+.site-header.puttery-nav .location-header .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  width: 100%;
+}
+
+.site-header.puttery-nav .location-header .left,
+.site-header.puttery-nav .location-header .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.site-header.puttery-nav .location-header .left {
+  align-items: flex-start;
+  flex: 1 1 12rem;
+  min-width: 0;
+  width: auto;
+}
+
+.site-header.puttery-nav .location-header .right {
+  align-items: flex-end;
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.site-header.puttery-nav .location-header span {
+  font-family: 'stolzl', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.site-header.puttery-nav .location-header .location-name,
+.site-header.puttery-nav .location-header .location-name a {
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 1.25rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.site-header.puttery-nav .location-header .location-name a {
+  color: var(--puttery-nav-white);
+  text-decoration: none;
+}
+
+.site-header.puttery-nav .location-header .schedule-direction {
+  margin-top: 4px;
+}
+
+.site-header.puttery-nav .location-header .schedule-direction .schedule {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  min-width: 0;
+  margin-top: 0;
+}
+
+.site-header.puttery-nav .location-header .schedule-icon,
+.site-header.puttery-nav .location-header .direction,
+.site-header.puttery-nav .location-header .direction a {
+  color: var(--puttery-nav-white);
+}
+
+.site-header.puttery-nav .location-header .right .btn {
+  padding: 4px 12px !important;
+  color: var(--puttery-nav-black);
+}
+
+.mobile-expanded-menu {
+  display: none;
+  position: fixed;
+  top: var(--puttery-header-height);
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - var(--puttery-header-height));
+  background-color: var(--puttery-nav-black);
+  z-index: 97;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.mobile-expanded-menu.is-open {
+  display: flex;
+}
+
+.mobile-expanded-menu .mobile-menu,
+.mobile-expanded-menu .location,
+.mobile-expanded-menu .social-links {
+  display: block;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.mobile-expanded-menu .mobile-menu {
+  padding-top: 30px;
+}
+
+.mobile-slide-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu-slide,
+.mobile-expanded-menu .mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.mobile-expanded-menu .menu-item {
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 2.5rem;
+  line-height: 0.9;
+  padding-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.mobile-expanded-menu .menu-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-expanded-menu .menu-row .nav-link {
+  flex: 1;
+  padding: 16px;
+  color: var(--puttery-nav-white);
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 2.5rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.mobile-expanded-menu .submenu-caret {
+  padding: 16px;
+  color: var(--puttery-nav-white);
+  font-size: 1.25rem;
+  line-height: 1;
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-expanded-menu .submenu-wrapper {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--puttery-nav-black);
+}
+
+.mobile-expanded-menu .submenu-wrapper.is-active {
+  display: block;
+}
+
+.mobile-expanded-menu .menu-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 16px;
+  color: var(--puttery-nav-white);
+  font-family: 'stolzl', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mobile-expanded-menu .location {
+  color: var(--puttery-nav-white);
+  padding-top: 30px;
+}
+
+.mobile-expanded-menu .location .location-name,
+.mobile-expanded-menu .location .location-name a {
+  font-family: 'Fugaz One', sans-serif;
+  font-size: 1.8125rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.mobile-expanded-menu .location .location-name a {
+  color: var(--puttery-nav-white);
+  text-decoration: none;
+}
+
+.mobile-expanded-menu .location .schedule-direction {
+  margin-top: 12px;
+}
+
+.mobile-expanded-menu .location .schedule-direction .schedule {
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: 0;
+}
+
+.mobile-expanded-menu .location .schedule-icon,
+.mobile-expanded-menu .location .direction,
+.mobile-expanded-menu .location .direction a {
+  color: var(--puttery-nav-white);
+}
+
+.mobile-expanded-menu .location .direction {
+  margin-left: 0;
+  margin-top: 8px;
+}
+
+.mobile-expanded-menu .location .reservation {
+  margin-top: 44px;
+}
+
+.mobile-expanded-menu .location .reservation .btn {
+  display: inline-block;
+  width: 220px;
+  text-align: center;
+}
+
+.mobile-expanded-menu .social-links {
+  color: var(--puttery-nav-red);
+  padding-bottom: 30px;
+}
+
+.mobile-expanded-menu .social-links h3 {
+  margin-bottom: 16px;
+  color: var(--puttery-nav-red);
+  font-family: 'stolzl', sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.mobile-expanded-menu .social-links a {
+  display: inline-block;
+  margin-right: 16px;
+  color: var(--puttery-nav-white);
+  filter: brightness(0) invert(1);
+}
+
+.mobile-expanded-menu .social-links a:last-child {
+  margin-right: 0;
+}
+
+@media (min-width: 1024px) {
+  .site-header.puttery-nav .reservation-mobile {
+    display: none !important;
+  }
+
+  .site-header.puttery-nav .mob-none {
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .site-header.puttery-nav .navbar-toggler {
+    display: none;
+  }
+
+  .site-header.puttery-nav .location-header {
+    display: none !important;
+  }
+
+  .site-header.puttery-nav .logo {
+    justify-content: flex-start;
+  }
+
+  body.has-puttery-nav {
+    --puttery-header-offset: var(--puttery-header-height);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1140px) {
+  .site-header.puttery-nav #menu-main-menu > .nav-item > .nav-link {
+    font-size: 12px !important;
+    padding: 0 4px;
+  }
+
+  .site-header.puttery-nav .flex-menu .reservation .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .site-header.puttery-nav .reservation-mobile {
+    display: flex;
+    order: 2;
+    margin-left: 12px;
+  }
+
+  .site-header.puttery-nav .mob-none {
+    display: none !important;
+  }
+
+  .site-header.puttery-nav .logo {
+    order: 1;
+    justify-content: flex-start;
+    width: auto !important;
+    flex: 0 1 auto;
+  }
+
+  .site-header.puttery-nav .navbar-toggler {
+    order: 3;
+  }
+
+  .site-header.puttery-nav .location-header {
+    display: flex;
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  body.has-puttery-nav {
+    --puttery-header-offset: calc(var(--puttery-header-height) + var(--puttery-location-bar-height));
+  }
+
+  .mobile-expanded-menu {
+    top: calc(var(--puttery-header-height) + var(--puttery-location-bar-height));
+    height: calc(100vh - var(--puttery-header-height) - var(--puttery-location-bar-height));
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  :root {
+    /* Smaller logo + 24px vertical padding ≈ 80px nav height */
+    --puttery-header-height: 80px;
+  }
+
+  .site-header.puttery-nav nav#header .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .site-header.puttery-nav .logo {
+    width: auto !important;
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+
+  .site-header.puttery-nav nav#header .row .logo .navbar-brand img {
+    width: 132px;
+    max-width: 132px;
+    height: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .site-header.puttery-nav .reservation-mobile > a {
+    font-size: 0.75rem;
+  }
+
+  .site-header.puttery-nav .reservation-mobile > a img {
+    height: 20px;
+  }
+
+  .mobile-expanded-menu .menu-item,
+  .mobile-expanded-menu .menu-row .nav-link {
+    font-size: 2.1875rem;
+    line-height: 0.9;
+  }
+
+  .mobile-expanded-menu .location {
+    padding-top: 0;
+  }
+
+  .mobile-expanded-menu .location .reservation {
+    margin-top: 16px;
+  }
+
+  .mobile-expanded-menu .social-links h3 {
+    margin-bottom: 8px;
+  }
+}

@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan group events and private parties at Puttery — a refined putting lounge built for corporate offsites, celebrations, and brand activations in cities nationwide.">
+  <title>Group Events &amp; Private Parties at Puttery | Host With Us</title>
+
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/fxe5ovc.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="puttery-site-nav.css">
+  <link rel="stylesheet" href="puttery-site-footer.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://puttery.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://puttery.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Host With Us", "item": "https://puttery.com/blog/host-with-us/" }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      /* Spatial scale — 4px grid (Matt D. Smith / MDS) */
+      --space-1: 0.25rem;   /* 4px */
+      --space-2: 0.5rem;    /* 8px */
+      --space-3: 0.75rem;   /* 12px */
+      --space-4: 1rem;      /* 16px */
+      --space-5: 1.25rem;   /* 20px */
+      --space-6: 1.5rem;    /* 24px */
+      --space-7: 1.75rem;   /* 28px */
+      --space-8: 2rem;      /* 32px */
+      --space-9: 2.25rem;   /* 36px */
+      --space-10: 2.5rem;   /* 40px */
+      --space-11: 2.75rem;  /* 44px */
+      --space-12: 3rem;     /* 48px */
+      --space-14: 3.5rem;   /* 56px */
+      --space-16: 4rem;     /* 64px */
+      --space-20: 5rem;     /* 80px */
+      --radius-sm: var(--space-2);
+      --radius-md: var(--space-3);
+      --puttery-header-offset-fallback: 96px;
+
+      --black: #000000;
+      --white: #ffffff;
+      --cta-red: #E63E62;
+      --navy: #23395B;
+      --page-bg: #FAF8F4;
+      --card-surface: #F4F1EC;
+      --warm-gray: #E8E4DE;
+      --text-muted: #5C5A56;
+      --pill: 999px;
+      --max: 1320px;
+      --gutter: clamp(var(--space-5), 4vw, var(--space-10));
+      --font-display: 'Fugaz One', cursive;
+      --font-body: 'stolzl', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-condensed: 'Alternate Gothic Condensed ATF', 'Arial Narrow', sans-serif;
+      --shadow-lift: 0 var(--space-2) var(--space-7) rgba(0, 0, 0, 0.08), 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.04);
+      --pillar-color: #E63E62;
+      --tag-host: #E63E62;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--black);
+      background: var(--page-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--pill);
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn--primary {
+      background: var(--cta-red);
+      color: var(--white);
+    }
+
+    .btn--primary:hover {
+      opacity: 0.9;
+      transform: translateY(calc(-1 * var(--space-1)));
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn--ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: var(--space-4) var(--gutter) 0;
+    }
+
+    .breadcrumb ol {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-1);
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb li + li::before {
+      content: '/';
+      margin-right: var(--space-1);
+      opacity: 0.5;
+    }
+
+    .breadcrumb [aria-current="page"] {
+      color: var(--black);
+    }
+
+    /* Pillar header — editorial feature opening */
+    .pillar-header {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(var(--space-8), 5vw, var(--space-16)) var(--gutter) clamp(var(--space-10), 6vw, var(--space-20));
+      position: relative;
+    }
+
+    .pillar-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: var(--gutter);
+      right: var(--gutter);
+      height: 1px;
+      background: var(--warm-gray);
+    }
+
+    .pillar-header__eyebrow {
+      display: inline-block;
+      font-family: var(--font-condensed);
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-5);
+    }
+
+    .pillar-header__tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.5625rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--pill);
+      color: var(--white);
+      background: var(--tag-host);
+      box-shadow: var(--shadow-lift);
+      margin-bottom: var(--space-6);
+    }
+
+    .pillar-header__title {
+      font-family: var(--font-display);
+      font-size: clamp(var(--space-9), 6.5vw, var(--space-16));
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      max-width: 16ch;
+      margin-bottom: clamp(var(--space-8), 4vw, var(--space-12));
+    }
+
+    .pillar-header__content {
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    @media (min-width: 900px) {
+      .pillar-header__content {
+        grid-template-columns: 1fr auto;
+        align-items: start;
+        gap: clamp(var(--space-8), 5vw, var(--space-16));
+      }
+    }
+
+    .pillar-header__intro {
+      max-width: 72ch;
+    }
+
+    .pillar-header__intro p {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(var(--space-4), 1.5vw, var(--space-5));
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 75ch;
+    }
+
+    .pillar-header__intro p + p {
+      margin-top: var(--space-5);
+    }
+
+    .pillar-header__intro p:first-child {
+      font-size: clamp(var(--space-4), 1.75vw, var(--space-5));
+      color: var(--black);
+    }
+
+    .pillar-header__cta-wrap {
+      flex-shrink: 0;
+      padding-top: var(--space-1);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      .pillar-header__cta-wrap {
+        width: min(22rem, 32vw);
+      }
+    }
+
+    .pillar-header__image {
+      margin: 0;
+    }
+
+    .pillar-header__image-frame {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--card-surface);
+      padding: var(--space-2);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .pillar-header__image-frame::before {
+      content: '';
+      position: absolute;
+      inset: var(--space-2);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-sm);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .pillar-header__image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+
+    @media (max-width: 899px) {
+      .pillar-header__cta-wrap .btn { width: 100%; }
+    }
+
+    /* City filter */
+    .city-filter {
+      position: sticky;
+      top: var(--puttery-header-offset, var(--puttery-header-offset-fallback));
+      z-index: 90;
+      background: var(--page-bg);
+      border-bottom: 1px solid var(--warm-gray);
+    }
+
+    .city-filter__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: var(--space-4) var(--gutter);
+      display: flex;
+      gap: var(--space-3);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .city-filter__inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .city-pill {
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--pill);
+      border: 2px solid var(--black);
+      background: var(--page-bg);
+      color: var(--black);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .city-pill:hover:not(.is-active) {
+      background: var(--card-surface);
+    }
+
+    .city-pill.is-active {
+      background: var(--pillar-color);
+      color: var(--white);
+      border-color: var(--pillar-color);
+    }
+
+    .city-pill--more {
+      border-style: dashed;
+    }
+
+    .city-filter__extra {
+      display: none;
+      flex-shrink: 0;
+      gap: var(--space-3);
+    }
+
+    .city-filter.is-expanded .city-filter__extra {
+      display: flex;
+    }
+
+    .city-filter.is-expanded .city-pill--more {
+      display: none;
+    }
+
+    /* Post grid */
+    .pillar-main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: var(--space-12) var(--gutter) 0;
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    @media (min-width: 768px) {
+      .post-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-7);
+      }
+    }
+
+    .post-card {
+      background: var(--card-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-lift);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(calc(-1 * var(--space-1)));
+      box-shadow: 0 var(--space-3) var(--space-9) rgba(0, 0, 0, 0.1), 0 var(--space-1) var(--space-3) rgba(0, 0, 0, 0.06);
+    }
+
+    .post-card.is-hidden {
+      display: none;
+    }
+
+    .post-card__image-link {
+      display: block;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .post-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .post-card:hover .post-card__image {
+      transform: scale(1.03);
+    }
+
+    .post-card__body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: var(--space-3);
+    }
+
+    .post-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      align-items: center;
+    }
+
+    .tag {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.5625rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--pill);
+      color: var(--white);
+    }
+
+    .tag--host-with-us {
+      background: var(--tag-host);
+    }
+
+    .tag--city {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .post-card__title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .post-card:hover .post-card__title {
+      color: var(--cta-red);
+    }
+
+    .post-card__excerpt {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+      max-width: 75ch;
+    }
+
+    .post-card__meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      padding-top: var(--space-4);
+      margin-top: auto;
+      border-top: 1px solid var(--warm-gray);
+    }
+
+    .post-grid__empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: var(--space-12) var(--space-4);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .post-grid__empty.is-visible {
+      display: block;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-14);
+      padding-top: var(--space-10);
+      padding-bottom: var(--space-12);
+      border-top: 1px solid var(--warm-gray);
+    }
+
+    .pagination a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: var(--space-11);
+      height: var(--space-11);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      border-radius: 50%;
+      border: 2px solid var(--black);
+      background: var(--page-bg);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .pagination a:not(.is-current):hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .pagination a.is-current {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* Bottom CTA — textured dark panel */
+    .pillar-cta-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--gutter) clamp(var(--space-12), 6vw, var(--space-20));
+    }
+
+    .pillar-cta {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border-left: var(--space-1) solid var(--cta-red);
+      background-color: #0d0d0d;
+      background-image:
+        radial-gradient(ellipse at 15% 80%, rgba(230, 62, 98, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 30%, rgba(35, 57, 91, 0.2) 0%, transparent 50%),
+        repeating-linear-gradient(
+          -12deg,
+          transparent,
+          transparent 2px,
+          rgba(255, 255, 255, 0.015) 2px,
+          rgba(255, 255, 255, 0.015) 4px
+        ),
+        linear-gradient(165deg, #1a1a1a 0%, #000000 55%, #0a0a0a 100%);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .pillar-cta__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      padding: clamp(var(--space-10), 5vw, var(--space-14)) clamp(var(--space-7), 4vw, var(--space-12));
+      color: var(--white);
+    }
+
+    @media (min-width: 768px) {
+      .pillar-cta__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .pillar-cta__headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      text-transform: uppercase;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      margin-bottom: var(--space-2);
+      max-width: 18ch;
+    }
+
+    .pillar-cta__copy {
+      font-size: var(--space-4);
+      line-height: 1.55;
+      opacity: 0.72;
+      max-width: 48ch;
+    }
+
+    .pillar-cta__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) {
+      .pillar-cta__actions {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .pillar-cta__actions .btn--primary,
+    .pillar-cta__actions .btn--ghost {
+      min-width: 12rem;
+    }
+
+    @media (max-width: 767px) {
+      .pillar-cta__actions .btn { width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .pillar-header__intro p,
+      .post-card__excerpt,
+      .pillar-cta__copy {
+        max-width: 75ch;
+      }
+
+      .pillar-header__title {
+        max-width: 100%;
+      }
+    }
+
+    /* Fugaz One headings — 90% line height */
+    .pillar-header__title,
+    .post-card__title,
+    .pillar-cta__headline {
+      line-height: 0.9;
+    }
+  </style>
+</head>
+<body class="has-puttery-nav">
+<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
+<header class="site-header puttery-nav">
+  <nav id="header" class="navbar navbar-expand-lg fixed-top" aria-label="Primary">
+    <div class="container">
+      <div class="row head">
+        <div class="reservation-mobile">
+          <a href="https://www.puttery.com/locations/" target="_blank" rel="nofollow">
+            <img src="images/calendar-icon.svg" width="26" height="28" alt="" class="calendar-icon">
+            Reserve
+          </a>
+        </div>
+        <div class="logo">
+          <a href="https://www.puttery.com/" title="Puttery" rel="home" class="navbar-brand">
+            <img src="images/puttery-logo.svg" width="163" height="40" alt="Puttery">
+          </a>
+        </div>
+        <div class="mob-none">
+          <div class="flex-menu">
+            <div class="header-location-inner location">
+              <div class="col-12">
+                <span class="location-name only-one active-location">
+                  <a href="https://www.puttery.com/locations/charlotte/">Charlotte</a>
+                </span>
+              </div>
+              <div class="col-12 schedule-direction">
+                <span class="schedule">
+                  <span class="schedule-icon">
+                    <img src="images/information.svg" width="13" height="13" alt="" aria-hidden="true">
+                    Opens at <strong>11:00 am</strong>
+                  </span>
+                  <span class="direction">
+                    <img src="images/location.svg" width="11" height="11" alt="" aria-hidden="true" class="direction-pin">
+                    <a href="https://www.puttery.com/locations/charlotte/" target="_blank" rel="noopener noreferrer">Directions</a>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div id="navbar" class="navbar-collapse">
+              <ul id="menu-main-menu" class="navbar-nav me-auto">
+                <li class="nav-item"><a title="Locations" href="https://www.puttery.com/locations/" class="nav-link">Locations</a></li>
+                <li class="nav-item"><a title="Mini Golf" href="https://www.puttery.com/mini-golf/" class="nav-link">Mini Golf</a></li>
+                <li class="nav-item"><a title="Food &amp; Drink" href="https://www.puttery.com/food-drink/" class="nav-link">Food &amp; Drink</a></li>
+                <li class="nav-item dropdown">
+                  <a title="Group Events" href="https://www.puttery.com/group-events/" class="nav-link dropdown-toggle-custom" aria-expanded="false">
+                    Group Events <span class="caret" aria-hidden="true"></span>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="nav-item"><a title="Overview" href="https://www.puttery.com/group-events/" class="nav-link">Overview</a></li>
+                    <li class="nav-item"><a title="Seasonal Offers" href="https://www.puttery.com/group-events/seasonal-offers/" class="nav-link">Seasonal Offers</a></li>
+                    <li class="nav-item"><a title="Holiday Events" href="https://www.puttery.com/group-events/holiday-events/" class="nav-link">Holiday Events</a></li>
+                    <li class="nav-item"><a title="Event Inquiry" href="https://www.puttery.com/group-events/event-inquiry/" class="nav-link" target="_blank">Event Inquiry</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="reservation">
+              <a href="https://www.puttery.com/locations/" target="_blank" rel="nofollow" class="btn btn-white reservation-btn">Book now</a>
+            </div>
+          </div>
+        </div>
+        <button class="navbar-toggler" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="location-header">
+    <div class="container">
+      <div class="row" data-locid="no">
+        <div class="left">
+          <span class="location-name active-location"><a href="https://www.puttery.com/locations/charlotte/">Charlotte</a></span>
+          <span class="schedule-direction">
+            <span class="schedule">
+              <span class="schedule-icon">
+                <img src="images/information.svg" width="13" height="13" alt="" aria-hidden="true">
+                Opens at <strong>11:00 am</strong>
+              </span>
+              <span class="direction">
+                <img src="images/location.svg" width="11" height="11" alt="" aria-hidden="true" class="direction-pin">
+                <a href="https://www.puttery.com/locations/charlotte/" target="_blank" rel="noopener noreferrer">Directions</a>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div class="right reservation">
+          <a href="https://www.puttery.com/locations/" target="_blank" rel="nofollow" class="mb-book-now-btn btn btn-white reservation-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu" class="mobile-expanded-menu" aria-hidden="true">
+  <div class="mobile-menu">
+    <div class="mobile-slide-container">
+      <ul class="mobile-menu-slide" data-level="0">
+        <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/locations/" class="nav-link">Locations</a></div></li>
+        <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/mini-golf/" class="nav-link">Mini Golf</a></div></li>
+        <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/food-drink/" class="nav-link">Food &amp; Drink</a></div></li>
+        <li class="menu-item">
+          <div class="menu-row">
+            <a href="https://www.puttery.com/group-events/" class="nav-link">Group Events</a>
+            <a href="#" class="submenu-caret" data-target="submenu-group-events" aria-label="Open submenu"><span class="caret-icon" aria-hidden="true">›</span></a>
+          </div>
+        </li>
+        <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/email-signup/" class="nav-link">Email Sign-up</a></div></li>
+      </ul>
+      <div class="submenu-wrapper" id="submenu-group-events">
+        <ul class="mobile-menu-slide" data-level="1">
+          <li class="menu-back"><a href="#" class="menu-back-link"><span class="back-icon" aria-hidden="true">‹</span> Back</a></li>
+          <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/group-events/" class="nav-link">Overview</a></div></li>
+          <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/group-events/seasonal-offers/" class="nav-link">Seasonal Offers</a></div></li>
+          <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/group-events/holiday-events/" class="nav-link">Holiday Events</a></div></li>
+          <li class="menu-item"><div class="menu-row"><a href="https://www.puttery.com/group-events/event-inquiry/" class="nav-link">Event Inquiry</a></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="location">
+    <div class="location-name active-location"><a href="https://www.puttery.com/locations/charlotte/">Charlotte</a></div>
+    <div class="schedule-direction">
+      <span class="schedule">
+        <span class="schedule-icon">
+          <img src="images/information.svg" width="13" height="13" alt="" aria-hidden="true">
+          Opens at <strong>11:00 am</strong>
+        </span>
+        <span class="direction">
+          <img src="images/location.svg" width="11" height="11" alt="" aria-hidden="true" class="direction-pin">
+          <a href="https://www.puttery.com/locations/charlotte/" target="_blank" rel="noopener noreferrer">Directions</a>
+        </span>
+      </span>
+    </div>
+    <div class="reservation">
+      <a href="https://www.puttery.com/locations/" target="_blank" rel="nofollow" class="btn btn-pink reservation-btn">Book now</a>
+    </div>
+  </div>
+  <div class="social-links">
+    <h3 class="title">Follow us on Social</h3>
+    <a href="https://www.facebook.com/putteryofficial/" target="_blank" rel="nofollow"><img src="images/social/facebook.svg" width="39" height="39" alt="Facebook"></a>
+    <a href="https://www.instagram.com/putteryofficial/" target="_blank" rel="nofollow"><img src="images/social/instagram.svg" width="36" height="37" alt="Instagram"></a>
+    <a href="https://www.tiktok.com/@putteryofficial" target="_blank" rel="nofollow"><img src="images/social/tiktok.svg" width="31" height="36" alt="TikTok"></a>
+    <a href="https://www.linkedin.com/company/puttery/" target="_blank" rel="nofollow"><img src="images/social/linkedin-in.svg" width="37" height="37" alt="LinkedIn"></a>
+  </div>
+</div>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><span>Home</span></li>
+    <li><span>Blog</span></li>
+    <li><span aria-current="page">Host With Us</span></li>
+  </ol>
+</nav>
+
+<header class="pillar-header">
+  
+  <span class="pillar-header__tag">Host With Us</span>
+  <h1 class="pillar-header__title" id="pillar-title">Group Events &amp; Private Parties at Puttery</h1>
+  <div class="pillar-header__content">
+    <div class="pillar-header__intro">
+      <p>Skip the conference room. Puttery is a refined putting lounge built for gatherings that feel intentional — corporate offsites, client dinners, milestone celebrations, and brand activations people reference afterward.</p>
+      <p>Our events team works with you on capacity, food and beverage, AV needs, and flow so the night runs itself while your guests stay present. Whether you need a semi-private suite for twenty or a full-venue buyout for two hundred, every location delivers moody interiors, chef-driven menus, and competitive energy without the kitsch.</p>
+      <p>Custom proposals cover staffing, dietary accommodations, branded touchpoints, and timeline — so planners spend less time chasing vendors and more time on the guest list. Browse city-specific guides below for capacity notes, local menu highlights, and lead times. When you're ready, inquire about events and our team will follow up with options tailored to your market. Of Course.</p>
+    </div>
+    <div class="pillar-header__cta-wrap">
+      <figure class="pillar-header__image">
+        <div class="pillar-header__image-frame">
+          <img
+            src="images/clean-bold/card-host-private-events.jpg"
+            alt="Elegantly set table at Puttery ready for a private event"
+            width="1200"
+            height="800"
+            fetchpriority="high"
+          >
+        </div>
+      </figure>
+      <a href="https://www.puttery.com/group-events/event-inquiry/" class="btn btn--primary">Inquire About Events</a>
+    </div>
+  </div>
+</header>
+
+<nav class="city-filter" aria-label="Filter posts by city" id="city-filter">
+  <div class="city-filter__inner">
+    <button type="button" class="city-pill is-active" data-city="all" aria-pressed="true">All Cities</button>
+    <button type="button" class="city-pill" data-city="dallas" aria-pressed="false">Dallas</button>
+    <button type="button" class="city-pill" data-city="houston" aria-pressed="false">Houston</button>
+    <button type="button" class="city-pill" data-city="chicago" aria-pressed="false">Chicago</button>
+    <button type="button" class="city-pill" data-city="nyc" aria-pressed="false">NYC</button>
+    <button type="button" class="city-pill" data-city="dc" aria-pressed="false">DC</button>
+    <button type="button" class="city-pill" data-city="charlotte" aria-pressed="false">Charlotte</button>
+    <button type="button" class="city-pill" data-city="pittsburgh" aria-pressed="false">Pittsburgh</button>
+    <button type="button" class="city-pill city-pill--more" id="city-more-toggle" aria-expanded="false" aria-controls="city-extra-pills">+ more</button>
+    <div class="city-filter__extra" id="city-extra-pills" role="group" aria-label="Additional cities">
+      <button type="button" class="city-pill" data-city="minneapolis" aria-pressed="false">Minneapolis</button>
+      <button type="button" class="city-pill" data-city="miami" aria-pressed="false">Miami</button>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="pillar-main">
+  <div class="post-grid" id="post-grid">
+
+    <article class="post-card" data-city="dallas">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-out-about-dallas.jpg" alt="Guest mid-swing on a Puttery course during a corporate offsite in Dallas" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">Dallas</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Corporate Offsites in Dallas That Don't Feel Like Homework</a></h3>
+        <p class="post-card__excerpt">How teams in Uptown and beyond use our refined putting lounge for client entertainment, QBRs, and the offsites people actually talk about.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-05-18">May 18, 2026</time>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="houston">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-host-corporate-event.jpg" alt="Private study room at Puttery Houston set up for a corporate gathering" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">Houston</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Corporate Event Venues in Houston Worth the Calendar Invite</a></h3>
+        <p class="post-card__excerpt">Capacity, custom menus, and AV for presentations — what Houston groups need before booking a refined putting lounge for their next gathering.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-05-14">May 14, 2026</time>
+          <span>7 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="chicago">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-out-about-chicago.jpg" alt="Upscale lounge seating at Puttery Chicago configured for a private River North event" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">Chicago</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">River North Private Events: Layouts for 30 to 250 Guests</a></h3>
+        <p class="post-card__excerpt">From cocktail receptions to seated dinners — how our Chicago team configures space, staffing, and pacing for groups that want more than a rented room.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-05-10">May 10, 2026</time>
+          <span>5 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="nyc">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-press-innovative.jpg" alt="Brand activation setup in a Puttery Manhattan lounge with moody evening lighting" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">NYC</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Manhattan Brand Activations Inside a Refined Putting Lounge</a></h3>
+        <p class="post-card__excerpt">Product launches, influencer nights, and immersive experiences — why NYC marketers choose moody lounges over generic event halls.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-05-06">May 6, 2026</time>
+          <span>8 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="dc">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-host-private-events.jpg" alt="Elegantly set table at Puttery DC ready for a private client dinner" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">DC</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Client Dinners in DC That Break the Steakhouse Routine</a></h3>
+        <p class="post-card__excerpt">Politely competitive putting, chef-driven plates, and private suites — the formula teams use when they need to impress without the usual Georgetown playbook.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-04-28">Apr 28, 2026</time>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="charlotte">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/hero-night-shift.jpg" alt="Moody lounge interior at Puttery Charlotte with warm ambient lighting for holiday parties" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">Charlotte</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Holiday Parties in Charlotte: Timing, Menus, and Buyouts</a></h3>
+        <p class="post-card__excerpt">Peak season books fast. Here's what Charlotte companies plan early — from passed bites to full-venue takeovers at our South End lounge.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-04-22">Apr 22, 2026</time>
+          <span>5 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="pittsburgh">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-at-puttery-daytime.jpg" alt="Team celebrating on a Puttery lodge course in Pittsburgh" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">Pittsburgh</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Team Celebrations in Pittsburgh Beyond the Brewery Tour</a></h3>
+        <p class="post-card__excerpt">Milestone dinners, retirement send-offs, and sales kickoffs — how local teams use a refined putting lounge when they want energy without noise.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-04-16">Apr 16, 2026</time>
+          <span>4 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="minneapolis">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-menu-espresso-martini.jpg" alt="Warm cocktails served at the Puttery Minneapolis bar during a winter corporate event" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">Minneapolis</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Winter Corporate Events in Minneapolis Worth Leaving the Office For</a></h3>
+        <p class="post-card__excerpt">When the sky gets dark early, groups head indoors for competitive play, warm cocktails, and semi-private spaces built for Midwest hospitality.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-04-10">Apr 10, 2026</time>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card" data-city="miami">
+      <a class="post-card__image-link" href="#">
+        <img class="post-card__image" src="images/clean-bold/card-at-puttery-first-visit.jpg" alt="Guests arriving at the Puttery Miami check-in for a launch event" width="1200" height="800" loading="lazy">
+      </a>
+      <div class="post-card__body">
+        <div class="post-card__tags">
+          <span class="tag tag--host-with-us">Host With Us</span>
+          <span class="tag tag--city">Miami</span>
+        </div>
+        <h3 class="post-card__title"><a href="#">Miami Launch Events With Nightlife Energy and Daytime Polish</a></h3>
+        <p class="post-card__excerpt">Influencer previews, destination client entertainment, and celebration weekends — why Miami hosts book a refined putting lounge over a rooftop cliché.</p>
+        <div class="post-card__meta">
+          <time datetime="2026-04-04">Apr 4, 2026</time>
+          <span>7 min read</span>
+        </div>
+      </div>
+    </article>
+
+    <p class="post-grid__empty" id="post-grid-empty" role="status">No posts match this city yet. Try All Cities or another location.</p>
+  </div>
+
+  <nav class="pagination" aria-label="Host With Us pagination">
+    <a href="https://puttery.com/blog/host-with-us/" class="is-current" aria-current="page">1</a>
+    <a href="https://puttery.com/blog/host-with-us/page/2/">2</a>
+    <a href="https://puttery.com/blog/host-with-us/page/3/">3</a>
+    <a href="https://puttery.com/blog/host-with-us/page/4/">4</a>
+    <a href="https://puttery.com/blog/host-with-us/page/2/" aria-label="Next page">→</a>
+  </nav>
+</main>
+
+<aside class="pillar-cta-wrap" aria-label="Plan your event at Puttery">
+  <div class="pillar-cta">
+    <div class="pillar-cta__inner">
+      <div>
+        <p class="pillar-cta__headline">Ready to Host Something They'll Reference?</p>
+        <p class="pillar-cta__copy">Tell us your city, headcount, and date — our events team builds custom proposals for groups of every size.</p>
+      </div>
+      <div class="pillar-cta__actions">
+        <a href="https://www.puttery.com/group-events/event-inquiry/" class="btn btn--primary">Inquire About Events</a>
+        <a href="#" class="btn btn--ghost">Download Fact Sheet</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-4 footer-logo">
+        <div data-elementor-type="container" data-elementor-id="10064" class="elementor elementor-10064" data-elementor-post-type="elementor_library">
+          <div class="elementor-element elementor-element-47b35dcf e-con-full e-flex e-con e-parent" data-id="47b35dcf" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-element elementor-element-288850fd elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="288850fd" data-element_type="widget" data-widget_type="heading.default">
+              <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default">Never miss out on a moment</h2>
+              </div>
+            </div>
+            <div class="elementor-element elementor-element-573c58c elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="573c58c" data-element_type="widget" data-widget_type="heading.default">
+              <div class="elementor-widget-container">
+                <p class="elementor-heading-title elementor-size-default">Sign-up for Puttery emails and we&rsquo;ll keep you in the loop on everything happening from new menu offerings to exclusive offers and more!</p>
+              </div>
+            </div>
+            <div class="elementor-element elementor-element-1cdac88d elementor-align-justify elementor-widget__width-initial elementor-widget elementor-widget-button" data-id="1cdac88d" data-element_type="widget" data-widget_type="button.default">
+              <div class="elementor-widget-container">
+                <div class="elementor-button-wrapper">
+                  <a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.puttery.com/email-signup/">
+                    <span class="elementor-button-content-wrapper">
+                      <span class="elementor-button-text">signup today</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.puttery.com/" title="Puttery" rel="home">
+          <img src="images/puttery-logo.svg" width="163" height="40" alt="Puttery">
+        </a>
+      </div>
+      <div class="col-sm-12 col-md-8 col-lg-6">
+        <div class="row">
+          <div class="col-md-auto col-xl-4 usefullinks">
+            <h3 class="title">Useful Links</h3>
+            <nav class="col-12">
+              <ul class="menu nav justify-content-end">
+                <li class="nav-item"><a href="https://www.puttery.com/careers/" class="nav-link">Careers</a></li>
+                <li class="nav-item"><a href="https://www.puttery.com/locations/" class="nav-link">Location</a></li>
+                <li class="nav-item"><a href="https://www.puttery.com/contact-us/" class="nav-link">Contact Us</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-auto col-xl-4 information">
+            <h3 class="title">Information</h3>
+            <nav class="col-12">
+              <ul class="menu nav justify-content-end">
+                <li class="nav-item"><a target="_blank" href="https://ir.driveshack.com/" class="nav-link">Investors</a></li>
+                <li class="nav-item"><a href="https://www.puttery.com/faqs/" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a target="_blank" href="https://putteryholdings.digitalgiftcardmanager.com/gift" class="nav-link">Gift Cards</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-auto col-xl-4 social">
+            <h3 class="title">Social</h3>
+            <a href="https://www.facebook.com/putteryofficial/" target="_blank" rel="nofollow"><img src="images/social/facebook.svg" width="39" height="39" alt="Facebook"> Facebook</a>
+            <a href="https://www.instagram.com/putteryofficial/" target="_blank" rel="nofollow"><img src="images/social/instagram.svg" width="36" height="37" alt="Instagram"> Instagram</a>
+            <a href="https://www.tiktok.com/@putteryofficial" target="_blank" rel="nofollow"><img src="images/social/tiktok.svg" width="31" height="36" alt="TikTok"> TikTok</a>
+            <a href="https://www.linkedin.com/company/puttery/" target="_blank" rel="nofollow"><img src="images/social/linkedin-in.svg" width="37" height="37" alt="LinkedIn"> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="be-ix-link-block">
+      <div class="be-related-link-container">
+        <div class="be-label">Also of Interest</div>
+        <ul class="be-list">
+          <li class="be-list-item"><a class="be-related-link" href="https://www.puttery.com/locations/new-york-city/">Mini Golf and Events in Meatpacking</a></li>
+          <li class="be-list-item"><a class="be-related-link" href="https://www.puttery.com/locations/houston/">Mini Golf with Cocktails and Events in Houston</a></li>
+          <li class="be-list-item"><a class="be-related-link" href="https://www.puttery.com/mini-golf/">Modern Mini Golf with Food and Drinks</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row bottom-footer">
+      <div class="col-md-6 col-sm-12 copyright">&copy; 2026 Puttery. All Rights Reserved.</div>
+      <nav class="col-md-6 col-sm-12 corporate">
+        <ul class="menu nav justify-content-end">
+          <li class="nav-item"><a href="https://www.puttery.com/code-of-conduct/" class="nav-link">Code of Conduct</a></li>
+          <li class="nav-item"><a href="https://www.puttery.com/privacy-policy/" class="nav-link">Privacy Policy</a></li>
+          <li class="nav-item"><a href="https://www.puttery.com/terms-conditions/" class="nav-link">Terms &#038; Conditions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="puttery-site-nav.js"></script>
+<script>
+  (function () {
+    var filterNav = document.getElementById('city-filter');
+    var grid = document.getElementById('post-grid');
+    var cards = grid.querySelectorAll('.post-card');
+    var pills = filterNav.querySelectorAll('.city-pill[data-city]');
+    var emptyState = document.getElementById('post-grid-empty');
+    var moreToggle = document.getElementById('city-more-toggle');
+
+    function setActivePill(active) {
+      pills.forEach(function (pill) {
+        var isActive = pill === active;
+        pill.classList.toggle('is-active', isActive);
+        pill.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }
+
+    function filterByCity(city) {
+      var visible = 0;
+      cards.forEach(function (card) {
+        var match = city === 'all' || card.getAttribute('data-city') === city;
+        card.classList.toggle('is-hidden', !match);
+        if (match) visible += 1;
+      });
+      emptyState.classList.toggle('is-visible', visible === 0);
+    }
+
+    pills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        setActivePill(pill);
+        filterByCity(pill.getAttribute('data-city'));
+      });
+    });
+
+    if (moreToggle) {
+      moreToggle.addEventListener('click', function () {
+        var expanded = filterNav.classList.toggle('is-expanded');
+        moreToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    }
+  })();
+</script>
+</body>
+</html>

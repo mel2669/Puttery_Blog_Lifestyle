@@ -1,0 +1,38 @@
+/* Presented-by attribution — below post grid */
+.blog-attribution {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 2rem;
+  font-family: var(--font-body, 'stolzl', 'Helvetica Neue', Helvetica, Arial, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-muted, #5c5a56);
+}
+
+.blog-attribution img {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.blog-attribution a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.blog-attribution a:hover {
+  color: var(--black, #000);
+}
+
+/* Dark Editorial variant */
+body.theme-dark-editorial .blog-attribution {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+body.theme-dark-editorial .blog-attribution a:hover {
+  color: var(--white, #fff);
+}

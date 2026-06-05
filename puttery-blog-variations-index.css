@@ -1,0 +1,332 @@
+/* Puttery Blog — Variations hub (pillar-style post cards per direction) */
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --cta-red: #E63E62;
+  --cta-red-fill: #D4395A;
+  --border: 2px solid var(--black);
+  --pill: 999px;
+  --max: 1320px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --font: 'stolzl', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Fugaz One', cursive;
+  --surface-raised: #111111;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-muted-dark: rgba(255, 255, 255, 0.58);
+  --text-dim: rgba(255, 255, 255, 0.46);
+  --card-surface: #F4F1EC;
+  --warm-gray: #E8E4DE;
+  --text-muted: #5C5A56;
+  --shadow-lift: 0 8px 28px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --tag-host: #E63E62;
+  --radius-md: 0.75rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+.variations-hub {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) var(--gutter) clamp(3rem, 8vw, 5rem);
+}
+
+.variations-hub__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.variations-grid {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+@media (min-width: 768px) {
+  .variations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .variations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Shared post-card structure */
+.post-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card__image-link {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.post-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.post-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.post-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.post-card__title a {
+  color: inherit;
+}
+
+.post-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: auto;
+}
+
+.post-card__meta a {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.post-card__meta a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* —— Clean Bold (pillar) —— */
+.post-card--clean {
+  background: var(--white);
+  border: var(--border);
+  border-radius: 8px;
+}
+
+.post-card--clean .post-card__image-link {
+  position: relative;
+  border-bottom: var(--border);
+  isolation: isolate;
+}
+
+.post-card--clean .post-card__image-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.post-card--clean .post-card__body {
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.post-card--clean .tag {
+  align-self: flex-start;
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--pill);
+  border: var(--border);
+  background: var(--white);
+  color: var(--black);
+}
+
+.post-card--clean:hover .post-card__title {
+  color: var(--cta-red);
+}
+
+.post-card--clean .post-card__meta {
+  padding-top: 1rem;
+  border-top: var(--border);
+  opacity: 0.45;
+}
+
+.post-card--clean .post-card__meta a:hover {
+  opacity: 1;
+  color: var(--cta-red);
+}
+
+/* —— Dark Editorial (pillar) —— */
+.post-card--dark {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+}
+
+.post-card--dark .post-card__image {
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.post-card--dark:hover .post-card__image {
+  opacity: 1;
+}
+
+.post-card--dark .post-card__body {
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.post-card--dark .tag {
+  font-weight: 700;
+  font-size: 0.5rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--pill);
+}
+
+.post-card--dark .tag--host-with-us {
+  background: var(--cta-red-fill);
+  color: var(--white);
+  border: none;
+}
+
+.post-card--dark .post-card__title {
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--white);
+  transition: color 0.2s ease;
+}
+
+.post-card--dark:hover .post-card__title {
+  color: var(--cta-red);
+}
+
+.post-card--dark .post-card__meta {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-dim);
+  font-weight: 400;
+  font-size: 0.5625rem;
+  letter-spacing: 0.1em;
+}
+
+.post-card--dark .post-card__meta a {
+  color: var(--text-muted-dark);
+  font-size: inherit;
+}
+
+.post-card--dark .post-card__meta a:hover {
+  color: var(--cta-red);
+}
+
+/* —— Lifestyle Layered (pillar) —— */
+.post-card--lifestyle {
+  background: var(--card-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card--lifestyle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.post-card--lifestyle .post-card__image {
+  transition: transform 0.35s ease;
+}
+
+.post-card--lifestyle:hover .post-card__image {
+  transform: scale(1.03);
+}
+
+.post-card--lifestyle .post-card__body {
+  padding: 1.5rem;
+  gap: 0.75rem;
+}
+
+.post-card--lifestyle .tag {
+  font-weight: 700;
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: var(--pill);
+  color: var(--white);
+}
+
+.post-card--lifestyle .tag--host-with-us {
+  background: var(--tag-host);
+}
+
+.post-card--lifestyle .post-card__title {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--black);
+  transition: color 0.2s ease;
+}
+
+.post-card--lifestyle:hover .post-card__title {
+  color: var(--cta-red);
+}
+
+.post-card--lifestyle .post-card__meta {
+  padding-top: 1rem;
+  border-top: 1px solid var(--warm-gray);
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.post-card--lifestyle .post-card__meta a {
+  color: var(--text-muted);
+  font-size: inherit;
+}
+
+.post-card--lifestyle .post-card__meta a:hover {
+  color: var(--cta-red);
+}
+
+.variations-hub .blog-attribution {
+  margin-top: clamp(2rem, 5vw, 3rem);
+  padding-top: clamp(1.5rem, 4vw, 2rem);
+  border-top: 1px solid var(--warm-gray);
+}
