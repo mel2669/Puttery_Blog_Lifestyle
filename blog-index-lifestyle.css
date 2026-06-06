@@ -44,6 +44,18 @@
   --tag-out: #00BFB2;
   --tag-menu: #FEE440;
   --tag-press: #2685E3;
+
+  /*
+   * Motion tokens — Emil Kowalski
+   * Lift: transform responses (cards, CTAs) — ease-out, immediate feedback
+   * Surface: fills and borders (pills, pagination, buttons) — ease, snappy
+   * Link: text color only (footer, attribution) — ease, minimal
+   */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-lift: 220ms;
+  --duration-surface: 180ms;
+  --duration-link: 160ms;
+  --duration-hover: var(--duration-lift);
 }
 
 *, *::before, *::after {
@@ -369,8 +381,18 @@ img {
   border-radius: var(--pill);
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    transform var(--duration-lift) var(--ease-out),
+    opacity var(--duration-surface) ease,
+    background var(--duration-surface) ease,
+    border-color var(--duration-surface) ease,
+    color var(--duration-surface) ease;
   white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+  transition-duration: 100ms;
 }
 
 .btn--primary {
@@ -383,6 +405,11 @@ img {
   transform: translateY(calc(-1 * var(--space-1)));
 }
 
+.btn--primary:active {
+  opacity: 1;
+  transform: scale(0.97);
+}
+
 /* Hero Read Story — ghost pink (WCAG AA on white); hover matches solid primary */
 .btn--ghost-pink {
   --hero-cta-ghost: #D12F58; /* 4.93:1 on #fff — AA normal text */
@@ -390,7 +417,6 @@ img {
   border: 2px solid var(--hero-cta-ghost);
   color: var(--hero-cta-ghost);
   padding: calc(var(--space-4) - 2px) calc(var(--space-8) - 2px);
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .btn--ghost-pink:hover {
@@ -399,6 +425,10 @@ img {
   color: var(--white);
   opacity: 1;
   transform: translateY(calc(-1 * var(--space-1)));
+}
+
+.btn--ghost-pink:active {
+  transform: scale(0.97);
 }
 
 .btn--ghost-pink:focus-visible {
@@ -456,13 +486,67 @@ img {
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background var(--duration-surface) ease,
+    color var(--duration-surface) ease,
+    border-color var(--duration-surface) ease;
 }
 
-.category-pill:hover:not(.is-active) {
+/* Default borders — match card tag background colors */
+.category-pill[data-category="at-puttery"] {
+  border-color: var(--tag-at-puttery);
+}
+
+.category-pill[data-category="host-with-us"] {
+  border-color: var(--tag-host);
+}
+
+.category-pill[data-category="out-and-about"] {
+  border-color: var(--tag-out);
+}
+
+.category-pill[data-category="the-menu"] {
+  border-color: var(--tag-menu);
+}
+
+.category-pill[data-category="in-the-press"] {
+  border-color: var(--tag-press);
+}
+
+.category-pill:hover:not(.is-active)[data-category="all"] {
   background: var(--white);
   color: var(--cta-red);
-  border-color: transparent;
+  border-color: var(--white);
+}
+
+.category-pill:hover:not(.is-active)[data-category="at-puttery"] {
+  background: var(--tag-at-puttery);
+  color: var(--black);
+  border-color: var(--tag-at-puttery);
+}
+
+.category-pill:hover:not(.is-active)[data-category="host-with-us"] {
+  background: var(--tag-host);
+  color: var(--white);
+  border-color: var(--tag-host);
+}
+
+.category-pill:hover:not(.is-active)[data-category="out-and-about"] {
+  background: var(--tag-out);
+  color: var(--black);
+  border-color: var(--tag-out);
+}
+
+.category-pill:hover:not(.is-active)[data-category="the-menu"] {
+  background: var(--tag-menu);
+  color: var(--black);
+  border-color: var(--tag-menu);
+}
+
+.category-pill:hover:not(.is-active)[data-category="in-the-press"] {
+  background: var(--tag-press);
+  color: var(--white);
+  border-color: var(--tag-press);
 }
 
 .category-pill.is-active {
@@ -499,11 +583,13 @@ img {
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-lift);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* transform only — box-shadow animates on paint, causes jank under load */
+  transition: transform var(--duration-lift) var(--ease-out);
 }
 
 .post-card:hover {
   transform: translateY(calc(-1 * var(--space-1)));
+  /* Shadow snaps instantly; lift carries the affordance without paint churn */
   box-shadow: 0 var(--space-3) var(--space-9) rgba(0, 0, 0, 0.1), 0 var(--space-1) var(--space-3) rgba(0, 0, 0, 0.06);
 }
 
@@ -517,11 +603,6 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-.post-card:hover .post-card__image {
-  transform: scale(1.03);
 }
 
 .post-card__body {
@@ -575,6 +656,7 @@ img {
   line-height: 0.9;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  transition: color var(--duration-surface) ease;
 }
 
 .post-card:hover .post-card__title {
@@ -711,7 +793,9 @@ img {
   border-radius: 50%;
   border: 2px solid var(--black);
   background: var(--white);
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background var(--duration-surface) ease,
+    color var(--duration-surface) ease;
 }
 
 .pagination span:not(.is-current):hover {
@@ -722,6 +806,22 @@ img {
 .pagination .is-current {
   background: var(--black);
   color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .category-pill,
+  .post-card,
+  .post-card__title,
+  .pagination span {
+    transition: none;
+  }
+
+  .btn:hover,
+  .btn:active,
+  .post-card:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 480px) {

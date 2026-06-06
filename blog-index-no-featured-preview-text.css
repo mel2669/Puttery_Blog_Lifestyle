@@ -1,6 +1,5 @@
 /* Blog index — no featured preview text; category nav pre-pink treatment */
-
-@import url("blog-index-lifestyle2.css");
+/* Base styles + motion tokens: blog-index-lifestyle.css + blog-index-lifestyle2.css */
 
 /* Hero category tag — align with headline inset; match post-card tag colors */
 .blog-index-no-preview .hero__tag {
@@ -39,12 +38,36 @@
 }
 
 .blog-index-no-preview .category-pill {
-  border: 2px solid var(--black);
   background: var(--white);
   color: var(--black);
 }
 
-.blog-index-no-preview .category-pill:hover:not(.is-active) {
+.blog-index-no-preview .category-pill[data-category="all"] {
+  border-color: var(--black);
+}
+
+.blog-index-no-preview .category-pill[data-category="at-puttery"] {
+  border-color: var(--tag-at-puttery);
+}
+
+.blog-index-no-preview .category-pill[data-category="host-with-us"] {
+  border-color: var(--tag-host);
+}
+
+.blog-index-no-preview .category-pill[data-category="out-and-about"] {
+  border-color: var(--tag-out);
+}
+
+.blog-index-no-preview .category-pill[data-category="the-menu"] {
+  border-color: var(--tag-menu);
+}
+
+.blog-index-no-preview .category-pill[data-category="in-the-press"] {
+  border-color: var(--tag-press);
+}
+
+/* All Posts — neutral hover on white nav (category pills use tag colors from lifestyle.css) */
+.blog-index-no-preview .category-pill:hover:not(.is-active)[data-category="all"] {
   background: var(--card-surface);
   color: var(--black);
   border-color: var(--black);

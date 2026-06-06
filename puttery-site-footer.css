@@ -127,7 +127,9 @@
   padding: 12px 24px;
   text-align: center;
   text-decoration: none;
-  transition: all 0.3s;
+  transition:
+    background-color var(--duration-surface, 180ms) var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    color var(--duration-surface, 180ms) ease;
 }
 
 #footer .elementor-button-content-wrapper {
@@ -202,10 +204,21 @@
   text-transform: uppercase;
 }
 
+#footer .elementor-10064 .elementor-element.elementor-element-1cdac88d .elementor-button {
+  transition:
+    background-color var(--duration-surface, 180ms) var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    color var(--duration-surface, 180ms) ease,
+    transform 100ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
 #footer .elementor-10064 .elementor-element.elementor-element-1cdac88d .elementor-button:hover,
 #footer .elementor-10064 .elementor-element.elementor-element-1cdac88d .elementor-button:focus {
   background-color: var(--e-global-color-2d24598);
   color: var(--e-global-color-c49c62b);
+}
+
+#footer .elementor-10064 .elementor-element.elementor-element-1cdac88d .elementor-button:active {
+  transform: scale(0.97);
 }
 
 #footer .elementor-10064 .elementor-element.elementor-element-1cdac88d .elementor-button .elementor-button-content-wrapper {
@@ -348,6 +361,7 @@ footer#footer .usefullinks ul li a {
   color: #fff;
   margin: 0;
   padding: 0;
+  transition: color var(--duration-link, 160ms) ease;
 }
 
 footer#footer .information ul li a:hover,
@@ -370,6 +384,7 @@ footer#footer .social a {
   margin: 0 0 20px;
   padding: 0;
   text-decoration: none;
+  transition: color var(--duration-link, 160ms) ease;
 }
 
 footer#footer .social a img,
@@ -394,6 +409,7 @@ footer#footer .bottom-footer {
 footer#footer .bottom-footer a {
   color: #fff;
   text-decoration: none;
+  transition: color var(--duration-link, 160ms) ease;
 }
 
 footer#footer .bottom-footer .copyright {
@@ -464,6 +480,7 @@ footer#footer .bottom-footer .corporate ul li a {
 .be-ix-link-block .be-related-link-container .be-list .be-list-item .be-related-link {
   color: #858585 !important;
   text-decoration: none;
+  transition: color var(--duration-link, 160ms) ease;
 }
 
 .be-ix-link-block .be-related-link-container .be-list .be-list-item .be-related-link:hover {
@@ -584,5 +601,21 @@ footer#footer .bottom-footer .corporate ul li a {
 
   footer#footer .container {
     padding-top: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #footer .elementor-button,
+  #footer .elementor-10064 .elementor-element.elementor-element-1cdac88d .elementor-button,
+  footer#footer .information ul li a,
+  footer#footer .usefullinks ul li a,
+  footer#footer .social a,
+  footer#footer .bottom-footer a,
+  .be-ix-link-block .be-related-link-container .be-list .be-list-item .be-related-link {
+    transition: none;
+  }
+
+  #footer .elementor-10064 .elementor-element.elementor-element-1cdac88d .elementor-button:active {
+    transform: none;
   }
 }

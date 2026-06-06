@@ -313,7 +313,10 @@ body.has-puttery-nav {
   opacity: 0;
   visibility: hidden;
   transform: translateY(4px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  transition:
+    opacity var(--duration-lift, 220ms) var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    transform var(--duration-lift, 220ms) var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    visibility var(--duration-lift, 220ms);
   z-index: 100;
 }
 
@@ -329,6 +332,9 @@ body.has-puttery-nav {
   font-size: 1rem;
   font-weight: 400;
   text-align: left !important;
+  transition:
+    background var(--duration-surface, 180ms) ease,
+    color var(--duration-surface, 180ms) ease;
 }
 
 .site-header.puttery-nav #menu-main-menu .dropdown-menu .nav-link:hover,
@@ -384,12 +390,21 @@ body.has-puttery-nav {
   background: var(--puttery-nav-red);
   border-color: var(--puttery-nav-red);
   color: var(--puttery-nav-white);
+  transition:
+    background var(--duration-surface, 180ms) ease,
+    border-color var(--duration-surface, 180ms) ease,
+    color var(--duration-surface, 180ms) ease,
+    transform 100ms var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
 .site-header.puttery-nav .flex-menu .reservation .btn:hover {
   background: var(--puttery-nav-white) !important;
   border-color: var(--puttery-nav-white) !important;
   color: var(--puttery-nav-red) !important;
+}
+
+.site-header.puttery-nav .flex-menu .reservation .btn:active {
+  transform: scale(0.97);
 }
 
 .site-header.puttery-nav .reservation-mobile {
@@ -837,5 +852,22 @@ body.has-puttery-nav {
 
   .mobile-expanded-menu .social-links h3 {
     margin-bottom: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.puttery-nav #menu-main-menu .dropdown-menu,
+  .site-header.puttery-nav #menu-main-menu .dropdown-menu .nav-link,
+  .site-header.puttery-nav .flex-menu .reservation .btn {
+    transition: none;
+  }
+
+  .site-header.puttery-nav #menu-main-menu .nav-item.dropdown:hover .dropdown-menu,
+  .site-header.puttery-nav #menu-main-menu .nav-item.dropdown.is-open .dropdown-menu {
+    transform: none;
+  }
+
+  .site-header.puttery-nav .flex-menu .reservation .btn:active {
+    transform: none;
   }
 }

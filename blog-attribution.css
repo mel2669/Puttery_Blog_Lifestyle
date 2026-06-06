@@ -22,6 +22,7 @@
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 0.15em;
+  transition: color var(--duration-link, 160ms) ease;
 }
 
 .blog-attribution a:hover {
@@ -35,4 +36,10 @@ body.theme-dark-editorial .blog-attribution {
 
 body.theme-dark-editorial .blog-attribution a:hover {
   color: var(--white, #fff);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-attribution a {
+    transition: none;
+  }
 }

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Card Hover — Animation Comparison</title>
+
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/fxe5ovc.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-7: 1.75rem;
+      --space-8: 2rem;
+      --space-9: 2.25rem;
+      --space-10: 2.5rem;
+      --space-16: 4rem;
+      --radius-md: var(--space-3);
+      --black: #000000;
+      --white: #ffffff;
+      --cta-red: #E63E62;
+      --card-surface: #F4F1EC;
+      --warm-gray: #E8E4DE;
+      --text-muted: #5C5A56;
+      --pill: 999px;
+      --font-display: 'Fugaz One', cursive;
+      --font-body: 'stolzl', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --shadow-lift: 0 var(--space-2) var(--space-7) rgba(0, 0, 0, 0.08), 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 var(--space-3) var(--space-9) rgba(0, 0, 0, 0.1), 0 var(--space-1) var(--space-3) rgba(0, 0, 0, 0.06);
+      --tag-at-puttery: #FB9637;
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --duration-hover: 220ms;
+      --card-width: 244px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      padding: var(--space-10) var(--space-6) var(--space-16);
+    }
+
+    .comparison-header {
+      max-width: 56rem;
+      margin: 0 auto var(--space-10);
+    }
+
+    .comparison-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: var(--space-4);
+    }
+
+    .comparison-header p {
+      color: var(--text-muted);
+      max-width: 52ch;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      max-width: 56rem;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    @media (min-width: 640px) {
+      .comparison-grid {
+        grid-template-columns: repeat(2, minmax(0, var(--card-width)));
+        justify-content: center;
+        gap: var(--space-8);
+      }
+    }
+
+    .comparison-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .comparison-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .comparison-label strong {
+      display: block;
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+      color: var(--black);
+      margin-bottom: var(--space-1);
+    }
+
+    .comparison-notes {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .comparison-notes code {
+      font-size: 0.6875rem;
+      background: var(--card-surface);
+      padding: 0.1em 0.35em;
+      border-radius: var(--space-1);
+    }
+
+    /* Shared card structure — identical for both variants */
+    .post-card {
+      width: var(--card-width);
+      background: var(--card-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-lift);
+    }
+
+    .post-card__image-link {
+      display: block;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .post-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .post-card__body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: var(--space-3);
+    }
+
+    .tag {
+      align-self: flex-start;
+      font-weight: 700;
+      font-size: 0.5625rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--pill);
+      color: var(--black);
+      background: var(--tag-at-puttery);
+    }
+
+    .post-card__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .post-card__excerpt {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .post-card__meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      padding-top: var(--space-4);
+      margin-top: auto;
+      border-top: 1px solid var(--warm-gray);
+    }
+
+    /* Original — pre-refinement animation */
+    .post-card--original {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .post-card--original:hover {
+      transform: translateY(calc(-1 * var(--space-1)));
+      box-shadow: var(--shadow-hover);
+    }
+
+    .post-card--original .post-card__image {
+      transition: transform 0.35s ease;
+    }
+
+    .post-card--original:hover .post-card__image {
+      transform: scale(1.03);
+    }
+
+    .post-card--original:hover .post-card__title {
+      color: var(--cta-red);
+    }
+
+    /* Refined — current blog-index-lifestyle.css animation */
+    .post-card--refined {
+      transition: transform var(--duration-hover) var(--ease-out);
+    }
+
+    .post-card--refined:hover {
+      transform: translateY(calc(-1 * var(--space-1)));
+      box-shadow: var(--shadow-hover);
+    }
+
+    .post-card--refined .post-card__title {
+      transition: color var(--duration-hover) ease;
+    }
+
+    .post-card--refined:hover .post-card__title {
+      color: var(--cta-red);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .post-card--original,
+      .post-card--refined,
+      .post-card--original .post-card__image,
+      .post-card--refined .post-card__title {
+        transition: none;
+      }
+
+      .post-card--original:hover,
+      .post-card--refined:hover {
+        transform: none;
+      }
+
+      .post-card--original:hover .post-card__image {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="comparison-header">
+    <h1>Post Card Hover Comparison</h1>
+    <p>Two identical cards at 244px width. Hover each to compare the original animation against the refined version. Move the cursor on and off quickly to test interruptibility.</p>
+  </header>
+
+  <div class="comparison-grid">
+
+    <div class="comparison-item">
+      <p class="comparison-label">
+        <strong>Original</strong>
+        Lift + shadow + image zoom
+      </p>
+
+      <article class="post-card post-card--original">
+        <div class="post-card__image-link">
+          <img class="post-card__image" src="images/clean-bold/card-at-puttery-first-visit.jpg" alt="Guests at the Puttery check-in counter in a refined putting lounge" width="1200" height="800">
+        </div>
+        <div class="post-card__body">
+          <span class="tag">At Puttery</span>
+          <h3 class="post-card__title"><span>What to Expect on Your First Visit to a Refined Putting Lounge</span></h3>
+          <p class="post-card__excerpt">From check-in to last call — a walkthrough of the experience without the guesswork. Dress code, timing, and what makes a night here different.</p>
+          <div class="post-card__meta">
+            <time datetime="2026-05-12">May 12, 2026</time>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <p class="comparison-notes">
+        <code>transform 0.2s ease</code>,
+        <code>box-shadow 0.2s ease</code>,
+        image <code>scale(1.03) 0.35s ease</code>,
+        title color snaps instantly.
+      </p>
+    </div>
+
+    <div class="comparison-item">
+      <p class="comparison-label">
+        <strong>Refined</strong>
+        Unified lift only
+      </p>
+
+      <article class="post-card post-card--refined">
+        <div class="post-card__image-link">
+          <img class="post-card__image" src="images/clean-bold/card-at-puttery-first-visit.jpg" alt="Guests at the Puttery check-in counter in a refined putting lounge" width="1200" height="800">
+        </div>
+        <div class="post-card__body">
+          <span class="tag">At Puttery</span>
+          <h3 class="post-card__title"><span>What to Expect on Your First Visit to a Refined Putting Lounge</span></h3>
+          <p class="post-card__excerpt">From check-in to last call — a walkthrough of the experience without the guesswork. Dress code, timing, and what makes a night here different.</p>
+          <div class="post-card__meta">
+            <time datetime="2026-05-12">May 12, 2026</time>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </article>
+
+      <p class="comparison-notes">
+        <code>transform 220ms cubic-bezier(0.23, 1, 0.32, 1)</code>,
+        shadow snaps (no transition),
+        no image zoom,
+        title <code>color 220ms ease</code>.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
