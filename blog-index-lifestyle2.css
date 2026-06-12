@@ -102,12 +102,13 @@
 @media (min-width: 768px) {
   .blog-index-v2 {
     --v2-hero-inset: clamp(var(--space-6), 4vw, var(--space-12));
+    --v2-excerpt-gap: clamp(var(--space-10), 4vw, var(--space-12)); /* ~40–48px */
   }
 
   .blog-index-v2 .hero__content {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.72fr);
+    grid-template-columns: fit-content(55%) minmax(220px, 1fr);
     grid-template-areas:
       "main excerpt"
       "cta cta";
@@ -119,6 +120,7 @@
   .blog-index-v2 .hero__content-main {
     grid-area: main;
     align-self: end;
+    width: 100%;
   }
 
   .blog-index-v2 .hero__excerpt {

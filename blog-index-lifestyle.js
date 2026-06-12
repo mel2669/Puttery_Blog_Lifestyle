@@ -47,7 +47,40 @@
 
   syncBookNowUrl();
 
-  var EXCERPT_GAP_PX = 48;
+  function getExcerptGapPx(content) {
+    var gapValue = getComputedStyle(content).getPropertyValue('--v2-excerpt-gap').trim();
+    if (!gapValue) return 48;
+
+    var probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;visibility:hidden;width:' + gapValue + ';';
+    document.body.appendChild(probe);
+    var gapPx = probe.offsetWidth;
+    document.body.removeChild(probe);
+    return gapPx || 48;
+  }
+
+  function getTitleTextRight(title) {
+    var maxRight = 0;
+    var range = document.createRange();
+
+    Array.prototype.forEach.call(title.childNodes, function (node) {
+      if (node.nodeType === 1 && node.classList.contains('visually-hidden')) return;
+
+      if (node.nodeType === 3) {
+        range.selectNodeContents(node);
+      } else if (node.nodeType === 1) {
+        range.selectNodeContents(node);
+      } else {
+        return;
+      }
+
+      Array.prototype.forEach.call(range.getClientRects(), function (rect) {
+        maxRight = Math.max(maxRight, rect.right);
+      });
+    });
+
+    return maxRight || title.getBoundingClientRect().right;
+  }
 
   function fitHeroExcerpt() {
     var content = document.querySelector('.blog-index-v2 .hero__content');
@@ -65,10 +98,11 @@
 
     if (window.innerWidth < 768) return;
 
+    var gapPx = getExcerptGapPx(content);
     var contentRect = content.getBoundingClientRect();
-    var titleRect = title.getBoundingClientRect();
+    var titleTextRight = getTitleTextRight(title);
     var excerptRect = excerpt.getBoundingClientRect();
-    var targetLeft = titleRect.right - contentRect.left + EXCERPT_GAP_PX;
+    var targetLeft = titleTextRight - contentRect.left + gapPx;
     var shift = targetLeft - (excerptRect.left - contentRect.left);
     var rightEdge = excerptRect.right - contentRect.left;
 
@@ -85,9 +119,15 @@
     }
   }
 
-  fitHeroExcerpt();
-  window.addEventListener('resize', fitHeroExcerpt);
+  function scheduleFitHeroExcerpt() {
+    requestAnimationFrame(function () {
+      fitHeroExcerpt();
+    });
+  }
+
+  scheduleFitHeroExcerpt();
+  window.addEventListener('resize', scheduleFitHeroExcerpt);
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(fitHeroExcerpt);
+    document.fonts.ready.then(scheduleFitHeroExcerpt);
   }
 })();

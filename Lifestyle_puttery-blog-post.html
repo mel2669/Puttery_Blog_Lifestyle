@@ -302,17 +302,21 @@
       opacity: 0.35;
     }
 
-    /* Featured image frame */
+    /* Featured image — matches blog index .hero__image-wrap */
     .featured-image {
+      width: min(var(--max), 100vw);
       max-width: var(--max);
       margin: var(--space-8) auto 0;
-      padding: 0 var(--gutter);
+      padding-inline: var(--gutter);
+      box-sizing: border-box;
     }
 
     .featured-image__frame {
       position: relative;
       border-radius: var(--radius-md);
       overflow: hidden;
+      width: 100%;
+      max-width: none;
       aspect-ratio: 64 / 27;
       max-height: min(39vh, 360px);
       background: var(--black);
@@ -329,7 +333,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 58%;
     }
 
     /* Layout */
