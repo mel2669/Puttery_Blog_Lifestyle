@@ -34,10 +34,11 @@
     "description": "Discover corporate event venues in Houston at Puttery — a refined putting lounge built for offsites and client entertainment.",
     "image": "https://puttery.com/images/clean-bold/card-host-corporate-event.jpg",
     "datePublished": "2026-04-15",
+    "dateModified": "2026-06-11",
     "author": {
-      "@type": "Person",
-      "name": "Jordan Ellis",
-      "jobTitle": "Director of Private Events"
+      "@type": "Organization",
+      "name": "puttery.com",
+      "url": "https://puttery.com/"
     },
     "publisher": {
       "@type": "Organization",
@@ -286,9 +287,15 @@
       color: var(--text-muted);
     }
 
-    .post-header__meta strong {
+    .post-header__meta a {
       color: var(--black);
       font-weight: 700;
+      text-decoration: none;
+    }
+
+    .post-header__meta a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
     }
 
     .post-header__meta-sep {
@@ -484,12 +491,12 @@
       font-weight: 700;
     }
 
-    /* Mid-post CTA */
+    /* Mid-post CTA — compact horizontal band */
     .mid-cta {
       position: relative;
       border-radius: var(--radius-md);
       overflow: hidden;
-      margin: var(--space-10) 0;
+      margin: var(--space-8) 0;
       max-width: 65ch;
       border-left: var(--space-1) solid var(--cta-red);
       background-color: #0d0d0d;
@@ -507,26 +514,58 @@
       box-shadow: var(--shadow-lift);
     }
 
+    .mid-cta h2,
+    .mid-cta p {
+      margin: 0;
+      scroll-margin-top: 0;
+    }
+
     .mid-cta__inner {
-      padding: clamp(var(--space-7), 4vw, var(--space-10));
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      column-gap: var(--space-3);
+      padding: var(--space-4) var(--space-4);
       color: var(--white);
+    }
+
+    @media (min-width: 640px) {
+      .mid-cta__inner {
+        padding: var(--space-4) var(--space-6);
+      }
+    }
+
+    .mid-cta__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-1);
+      min-width: 0;
+      align-self: center;
     }
 
     .mid-cta__headline {
       font-family: var(--font-display);
-      font-size: clamp(var(--space-5), 3vw, var(--space-7));
+      font-size: clamp(var(--space-3), 2vw, var(--space-4));
       text-transform: uppercase;
       line-height: 0.9;
       letter-spacing: 0.02em;
-      margin-bottom: var(--space-3);
     }
 
     .mid-cta__copy {
-      font-size: var(--space-4);
-      line-height: 1.55;
+      font-size: 0.6875rem;
+      line-height: 1.3;
       opacity: 0.78;
-      margin-bottom: var(--space-5);
       max-width: 42ch;
+    }
+
+    .mid-cta .btn--primary {
+      align-self: center;
+      justify-self: end;
+      margin: 0;
+      padding: var(--space-2) var(--space-4);
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
     }
 
     /* Mobile inline CTAs (sidebar collapse) */
@@ -629,9 +668,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: var(--space-3) var(--space-5);
-      margin-top: var(--space-10);
-      padding-top: var(--space-8);
-      border-top: 1px solid var(--warm-gray);
+      margin-bottom: var(--space-8);
       max-width: 65ch;
     }
 
@@ -650,21 +687,52 @@
       }
     }
 
-    .share__btn {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+    .share__icons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .share__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
       background: none;
       border: none;
       cursor: pointer;
-      padding: var(--space-1) 0;
-      font-family: var(--font-body);
+      text-decoration: none;
+      color: var(--black);
       transition: color 0.2s ease;
     }
 
-    .share__btn:hover {
+    .share__icon:hover {
       color: var(--cta-red);
+    }
+
+    .share__icon--copy:hover,
+    .share__icon--email:hover,
+    .share__icon--facebook:hover,
+    .share__icon--x:hover,
+    .share__icon--linkedin:hover {
+      color: var(--black);
+    }
+
+    .share__icon--copy:hover svg rect,
+    .share__icon--email:hover svg rect,
+    .share__icon--facebook:hover svg rect,
+    .share__icon--x:hover svg rect,
+    .share__icon--linkedin:hover svg rect {
+      fill: var(--cta-red);
+    }
+
+    .share__icon svg {
+      display: block;
+      width: 36px;
+      height: 36px;
     }
 
     /* FAQ */
@@ -1185,16 +1253,16 @@
   <div class="social-links">
     <h3 class="title">Follow us on Social</h3>
     <a href="https://www.facebook.com/putteryofficial/" target="_blank" rel="nofollow">
-      <img src="images/social/facebook.svg" width="39" height="39" alt="Facebook">
+      <img src="images/social/facebook.svg" width="36" height="36" alt="Facebook">
     </a>
     <a href="https://www.instagram.com/putteryofficial/" target="_blank" rel="nofollow">
-      <img src="images/social/instagram.svg" width="36" height="37" alt="Instagram">
+      <img src="images/social/instagram.svg" width="36" height="36" alt="Instagram">
     </a>
     <a href="https://www.tiktok.com/@putteryofficial" target="_blank" rel="nofollow">
-      <img src="images/social/tiktok.svg" width="31" height="36" alt="TikTok">
+      <img src="images/social/tiktok.svg" width="36" height="36" alt="TikTok">
     </a>
     <a href="https://www.linkedin.com/company/puttery/" target="_blank" rel="nofollow">
-      <img src="images/social/linkedin-in.svg" width="37" height="37" alt="LinkedIn">
+      <img src="images/social/linkedin-in.svg" width="36" height="36" alt="LinkedIn">
     </a>
   </div>
 </div>
@@ -1214,9 +1282,11 @@
     <h1 class="post-header__title">Corporate Event Venues in Houston That Teams Actually Remember</h1>
 
     <div class="post-header__meta">
-      <span><strong>Jordan Ellis</strong>, Director of Private Events</span>
+      <span><a href="https://puttery.com/">puttery.com</a></span>
       <span class="post-header__meta-sep" aria-hidden="true">|</span>
-      <time datetime="2026-04-15">April 15, 2026</time>
+      <span>Published <time datetime="2026-04-15">April 15, 2026</time></span>
+      <span class="post-header__meta-sep" aria-hidden="true">|</span>
+      <span>Updated <time datetime="2026-06-11" itemprop="dateModified">June 11, 2026</time></span>
       <span class="post-header__meta-sep" aria-hidden="true">|</span>
       <span>8 min read</span>
     </div>
@@ -1241,6 +1311,43 @@
         <a href="#" class="btn btn--ghost-dark">Download Fact Sheet</a>
       </div>
 
+      <div class="share" aria-label="Share this article">
+        <span class="share__label">Share</span>
+        <div class="share__icons">
+          <button type="button" class="share__icon share__icon--copy" id="copy-link" aria-label="Copy link" title="Copy link">
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="16" fill="black"/>
+              <path d="M10.6974 13.5238L7.51542 16.7058C6.99908 17.2152 6.58862 17.8218 6.30767 18.4906C6.02672 19.1593 5.88083 19.877 5.8784 20.6024C5.87597 21.3278 6.01705 22.0465 6.29351 22.7171C6.56998 23.3877 6.97637 23.997 7.48928 24.5099C8.0022 25.0228 8.6115 25.4292 9.28212 25.7057C9.95274 25.9821 10.6714 26.1232 11.3968 26.1208C12.1222 26.1184 12.8399 25.9725 13.5086 25.6915C14.1774 25.4106 14.784 25.0001 15.2934 24.4838L16.3534 23.4238C16.4968 23.2855 16.6111 23.12 16.6898 22.937C16.7685 22.7541 16.81 22.5573 16.8118 22.3581C16.8136 22.1589 16.7758 21.9614 16.7004 21.777C16.6251 21.5926 16.5138 21.4251 16.373 21.2842C16.2322 21.1433 16.0648 21.0318 15.8805 20.9563C15.6962 20.8808 15.4987 20.8428 15.2995 20.8444C15.1004 20.846 14.9035 20.8873 14.7205 20.9658C14.5374 21.0444 14.3719 21.1586 14.2334 21.3018L13.1714 22.3628C12.7018 22.8282 12.067 23.0886 11.4058 23.087C10.7447 23.0855 10.1111 22.8221 9.64365 22.3545C9.17621 21.887 8.91302 21.2533 8.91167 20.5921C8.91032 19.931 9.17091 19.2962 9.63643 18.8268L12.8184 15.6448C13.1624 15.3007 13.5992 15.0644 14.0754 14.965C14.5516 14.8655 15.0465 14.9071 15.4994 15.0848C15.6608 15.1488 15.8121 15.2141 15.9534 15.2808L16.4174 15.4978C17.0374 15.7778 17.5144 15.8978 18.1214 15.2918C18.9934 14.4198 18.7674 13.6148 17.7044 12.8818C16.6455 12.1531 15.3648 11.8184 14.0848 11.9357C12.8048 12.0529 11.6063 12.6148 10.6974 13.5238ZM16.7074 7.51377L15.6474 8.57377C15.3741 8.85654 15.2227 9.23537 15.2259 9.62867C15.2291 10.022 15.3867 10.3983 15.6647 10.6765C15.9427 10.9548 16.3188 11.1127 16.7121 11.1163C17.1054 11.1199 17.4844 10.9689 17.7674 10.6958L18.8284 9.63577C19.059 9.39693 19.3348 9.20639 19.6398 9.07529C19.9447 8.94418 20.2728 8.87512 20.6047 8.87214C20.9367 8.86916 21.2659 8.93233 21.5731 9.05794C21.8804 9.18356 22.1596 9.36911 22.3944 9.60377C22.6292 9.83844 22.8149 10.1175 22.9407 10.4247C23.0665 10.7319 23.1298 11.0611 23.127 11.3931C23.1243 11.725 23.0554 12.0531 22.9244 12.3581C22.7935 12.6632 22.6031 12.9391 22.3644 13.1698L19.1824 16.3518C18.8385 16.6958 18.4016 16.9321 17.9254 17.0316C17.4492 17.131 16.9543 17.0894 16.5014 16.9118C16.3401 16.8478 16.1888 16.7824 16.0474 16.7158L15.5834 16.4988C14.9634 16.2188 14.4854 16.0988 13.8794 16.7048C13.0074 17.5768 13.2334 18.3818 14.2964 19.1148C15.3553 19.8434 16.636 20.1782 17.916 20.0609C19.196 19.9436 20.3946 19.3817 21.3034 18.4728L24.4854 15.2908C25.0018 14.7813 25.4122 14.1747 25.6932 13.506C25.9741 12.8372 26.12 12.1195 26.1225 11.3941C26.1249 10.6688 25.9838 9.95008 25.7073 9.27946C25.4309 8.60885 25.0245 7.99954 24.5116 7.48662C23.9987 6.97371 23.3893 6.56732 22.7187 6.29085C22.0481 6.01439 21.3294 5.87331 20.6041 5.87574C19.8787 5.87817 19.161 6.02406 18.4922 6.30501C17.8235 6.58596 17.2169 6.99743 16.7074 7.51377Z" fill="white"/>
+            </svg>
+          </button>
+          <a href="#" class="share__icon share__icon--facebook" aria-label="Share on Facebook" title="Share on Facebook">
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="16" fill="black"/>
+              <path d="M17.45 17.65H20.2L21.3 13.25H17.45V11.05C17.45 9.917 17.45 8.85 19.65 8.85H21.3V5.154C20.9414 5.1067 19.5873 5 18.1573 5C15.1708 5 13.05 6.8227 13.05 10.17V13.25H9.75V17.65H13.05V27H17.45V17.65Z" fill="white"/>
+            </svg>
+          </a>
+          <a href="#" class="share__icon share__icon--x" aria-label="Share on X" title="Share on X">
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="16" fill="black"/>
+              <path d="M18.2655 14.4297L24.462 6.75H21.6963L16.9668 12.6153L12.771 6.75H6.75L13.7754 16.569L7.173 24.75H9.9396L15.0741 18.387L19.629 24.75H25.65L18.2655 14.4297ZM16.1235 17.0847L14.823 15.2676L9.774 8.2143H11.853L15.9282 13.8996L17.2269 15.7176L22.6431 23.2857H20.5641L16.1235 17.0847Z" fill="white"/>
+            </svg>
+          </a>
+          <a href="#" class="share__icon share__icon--linkedin" aria-label="Share on LinkedIn" title="Share on LinkedIn">
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="16" fill="black"/>
+              <path d="M11.25 8C11.2497 8.53043 11.0388 9.03904 10.6635 9.41392C10.2882 9.78881 9.77943 9.99927 9.249 9.999C8.71857 9.99874 8.20996 9.78777 7.83508 9.41251C7.46019 9.03725 7.24974 8.52843 7.25 7.998C7.25027 7.46757 7.46123 6.95897 7.83649 6.58408C8.21175 6.20919 8.72057 5.99874 9.251 5.999C9.78143 5.99927 10.29 6.21023 10.6649 6.58549C11.0398 6.96075 11.2503 7.46957 11.25 8ZM11.31 11.48H7.31V24H11.31V11.48ZM17.63 11.48H13.65V24H17.59V17.43C17.59 13.77 22.36 13.43 22.36 17.43V24H26.31V16.07C26.31 9.9 19.25 10.13 17.59 13.16L17.63 11.48Z" fill="white"/>
+            </svg>
+          </a>
+          <a href="mailto:?subject=Corporate%20Event%20Venues%20in%20Houston" class="share__icon share__icon--email" aria-label="Share via email" title="Share via email">
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="16" fill="black"/>
+              <path d="M11.5114 9.20691C14.6858 8.93103 17.8782 8.93103 21.0527 9.20691L22.5832 9.33859C23.0739 9.3814 23.5459 9.54736 23.9554 9.82108C24.3649 10.0948 24.6988 10.4675 24.926 10.9045C24.9525 10.9584 24.9578 11.0204 24.9407 11.078C24.9236 11.1356 24.8854 11.1847 24.8338 11.2155L18.4871 15.1454C17.8191 15.559 17.0507 15.7819 16.2651 15.7899C15.4795 15.7979 14.7067 15.5908 14.0304 15.191L7.64216 11.415C7.5918 11.3865 7.55348 11.3408 7.5343 11.2862C7.51511 11.2316 7.51637 11.1719 7.53783 11.1182C7.74485 10.6274 8.08185 10.2024 8.51253 9.88903C8.94322 9.57561 9.45126 9.38564 9.98192 9.3396L11.5114 9.20691Z" fill="white"/>
+              <path d="M7.53277 13.1156C7.49658 13.0942 7.45558 13.0822 7.41354 13.0807C7.3715 13.0792 7.32976 13.0883 7.29216 13.1072C7.25455 13.126 7.22228 13.154 7.19831 13.1886C7.17434 13.2232 7.15944 13.2632 7.15496 13.305C6.89813 15.8553 6.96074 18.4277 7.34133 20.9624C7.43976 21.6117 7.75367 22.2091 8.2326 22.6584C8.71153 23.1078 9.32766 23.383 9.98192 23.4399L11.5114 23.5726C14.6868 23.8491 17.8794 23.8491 21.0547 23.5726L22.5842 23.4409C23.2387 23.3837 23.8549 23.1079 24.3337 22.658C24.8125 22.208 25.126 21.6101 25.2238 20.9604C25.6154 18.3518 25.6702 15.7037 25.3868 13.0812C25.3819 13.0392 25.3665 12.9991 25.342 12.9647C25.3174 12.9302 25.2846 12.9025 25.2465 12.8841C25.2085 12.8657 25.1664 12.8573 25.1241 12.8595C25.0819 12.8617 25.0409 12.8746 25.005 12.8968L19.2873 16.4358C18.3838 16.995 17.3445 17.2963 16.282 17.3072C15.2196 17.3181 14.1744 17.0381 13.2596 16.4976L7.53277 13.1156Z" fill="white"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
       <p class="article__lead">Houston has no shortage of ballrooms and boardrooms. The problem is not availability — it is memorability. When you are evaluating corporate event venues in Houston, the goal is not another catered lunch in a beige room. It is an experience your team references in Slack six months later.</p>
 
       <p>Puttery is a refined putting lounge — not a conference center with a gimmick bolted on. Groups come for competitive play, stay for craft cocktails and chef-driven bites, and leave with a story that travels farther than a slide deck ever could. Of Course.</p>
@@ -1251,7 +1358,7 @@
 
       <aside class="mid-cta" aria-label="Event inquiry">
         <div class="mid-cta__inner">
-          <div>
+          <div class="mid-cta__content">
             <h2 class="mid-cta__headline">Planning a Houston offsite?</h2>
             <p class="mid-cta__copy">Tell us your headcount, date range, and format — our events team will respond with availability and a tailored proposal.</p>
           </div>
@@ -1326,14 +1433,6 @@
           </div>
         </div>
       </section>
-
-      <div class="share" aria-label="Share this article">
-        <span class="share__label">Share</span>
-        <button type="button" class="share__btn" id="copy-link">Copy Link</button>
-        <a href="#" class="share__btn">Facebook</a>
-        <a href="#" class="share__btn">LinkedIn</a>
-        <a href="mailto:?subject=Corporate%20Event%20Venues%20in%20Houston" class="share__btn">Email</a>
-      </div>
     </main>
 
     <aside class="sidebar" aria-label="Sidebar actions and table of contents">
@@ -1501,16 +1600,16 @@
           <div class="col-md-auto col-xl-4 social">
             <h3 class="title">Social</h3>
             <a href="https://www.facebook.com/putteryofficial/" target="_blank" rel="nofollow">
-              <img src="images/social/facebook.svg" width="39" height="39" alt="Facebook"> Facebook
+              <img src="images/social/facebook.svg" width="36" height="36" alt="Facebook"> Facebook
             </a>
             <a href="https://www.instagram.com/putteryofficial/" target="_blank" rel="nofollow">
-              <img src="images/social/instagram.svg" width="36" height="37" alt="Instagram"> Instagram
+              <img src="images/social/instagram.svg" width="36" height="36" alt="Instagram"> Instagram
             </a>
             <a href="https://www.tiktok.com/@putteryofficial" target="_blank" rel="nofollow">
-              <img src="images/social/tiktok.svg" width="31" height="36" alt="TikTok"> TikTok
+              <img src="images/social/tiktok.svg" width="36" height="36" alt="TikTok"> TikTok
             </a>
             <a href="https://www.linkedin.com/company/puttery/" target="_blank" rel="nofollow">
-              <img src="images/social/linkedin-in.svg" width="37" height="37" alt="LinkedIn"> LinkedIn
+              <img src="images/social/linkedin-in.svg" width="36" height="36" alt="LinkedIn"> LinkedIn
             </a>
           </div>
         </div>
@@ -1599,8 +1698,12 @@
       if (copyBtn && navigator.clipboard) {
         copyBtn.addEventListener('click', function () {
           navigator.clipboard.writeText(window.location.href).then(function () {
-            copyBtn.textContent = 'Copied';
-            setTimeout(function () { copyBtn.textContent = 'Copy Link'; }, 2000);
+            copyBtn.setAttribute('aria-label', 'Link copied');
+            copyBtn.setAttribute('title', 'Link copied');
+            setTimeout(function () {
+              copyBtn.setAttribute('aria-label', 'Copy link');
+              copyBtn.setAttribute('title', 'Copy link');
+            }, 2000);
           });
         });
       }

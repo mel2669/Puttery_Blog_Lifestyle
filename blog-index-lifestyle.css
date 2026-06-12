@@ -138,15 +138,15 @@ img {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  aspect-ratio: 16 / 9;
-  max-height: min(52vh, 480px);
+  aspect-ratio: 64 / 27;
+  max-height: min(39vh, 360px);
   background: var(--black);
 }
 
 @media (min-width: 768px) {
   .hero__image-wrap {
-    aspect-ratio: 20 / 9;
-    max-height: min(52vh, 520px);
+    aspect-ratio: 80 / 27;
+    max-height: min(39vh, 390px);
   }
 }
 
@@ -472,10 +472,14 @@ img {
 }
 
 .category-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.75rem;
+  line-height: 1.2;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: var(--space-3) var(--space-5);
@@ -486,6 +490,7 @@ img {
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
+  box-sizing: border-box;
   transition:
     background var(--duration-surface) ease,
     color var(--duration-surface) ease,

@@ -119,15 +119,15 @@
   margin-inline: auto;
   padding: var(--space-4) calc(var(--gutter) + var(--v2-hero-inset));
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: var(--space-2);
+  scroll-padding-inline: calc(var(--gutter) + var(--v2-hero-inset));
 }
 
 .blog-index-v2 .category-nav__inner .category-pill {
-  flex: 1 1 0;
-  min-width: 0;
-  padding: var(--space-2) var(--space-2);
-  font-size: clamp(0.5625rem, 1.6vw, 0.6875rem);
+  flex: 0 0 auto;
+  padding: var(--space-2) var(--space-4);
+  font-size: clamp(0.625rem, 2.8vw, 0.6875rem);
   letter-spacing: 0.08em;
   text-align: center;
   white-space: nowrap;
@@ -142,7 +142,14 @@
 }
 
 @media (min-width: 1024px) {
+  .blog-index-v2 .category-nav__inner {
+    justify-content: space-between;
+    scroll-padding-inline: 0;
+  }
+
   .blog-index-v2 .category-nav__inner .category-pill {
+    flex: 1 1 0;
+    min-width: 0;
     padding: var(--space-3) var(--space-4);
   }
 }
