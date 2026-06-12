@@ -128,8 +128,8 @@
       --font-body: 'stolzl', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       --font-condensed: 'Alternate Gothic Condensed ATF', 'Arial Narrow', sans-serif;
       --shadow-lift: 0 var(--space-2) var(--space-7) rgba(0, 0, 0, 0.08), 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.04);
-      --pillar-color: #E63E62;
-      --tag-host: #E63E62;
+      --pillar-color: #FB9637;
+      --tag-host: #FB9637;
     }
 
     *, *::before, *::after {
@@ -313,26 +313,23 @@
       position: relative;
       border-radius: var(--radius-md);
       overflow: hidden;
-      background: var(--card-surface);
-      padding: var(--space-2);
-      box-shadow: var(--shadow-lift);
+      aspect-ratio: 64 / 27;
+      max-height: min(39vh, 360px);
+      background: var(--black);
     }
 
-    .featured-image__frame::before {
-      content: '';
-      position: absolute;
-      inset: var(--space-2);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: var(--radius-sm);
-      pointer-events: none;
-      z-index: 1;
+    @media (min-width: 768px) {
+      .featured-image__frame {
+        aspect-ratio: 80 / 27;
+        max-height: min(39vh, 390px);
+      }
     }
 
     .featured-image img {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      height: 100%;
       object-fit: cover;
-      border-radius: var(--radius-sm);
+      object-position: center top;
     }
 
     /* Layout */
@@ -521,10 +518,9 @@
     }
 
     .mid-cta__inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      column-gap: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
       padding: var(--space-4) var(--space-4);
       color: var(--white);
     }
@@ -535,16 +531,16 @@
       }
     }
 
-    .mid-cta__content {
+    .mid-cta__row {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: var(--space-1);
-      min-width: 0;
-      align-self: center;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
     }
 
     .mid-cta__headline {
+      flex: 1;
+      min-width: 0;
       font-family: var(--font-display);
       font-size: clamp(var(--space-3), 2vw, var(--space-4));
       text-transform: uppercase;
@@ -560,8 +556,7 @@
     }
 
     .mid-cta .btn--primary {
-      align-self: center;
-      justify-self: end;
+      flex-shrink: 0;
       margin: 0;
       padding: var(--space-2) var(--space-4);
       font-size: 0.6875rem;
@@ -1297,8 +1292,8 @@
       <img
         src="images/clean-bold/card-host-corporate-event.jpg"
         alt="Private study room at Puttery Houston configured for a corporate gathering"
-        width="1200"
-        height="800"
+        width="1920"
+        height="1280"
         fetchpriority="high"
       >
     </div>
@@ -1358,11 +1353,11 @@
 
       <aside class="mid-cta" aria-label="Event inquiry">
         <div class="mid-cta__inner">
-          <div class="mid-cta__content">
+          <div class="mid-cta__row">
             <h2 class="mid-cta__headline">Planning a Houston offsite?</h2>
-            <p class="mid-cta__copy">Tell us your headcount, date range, and format — our events team will respond with availability and a tailored proposal.</p>
+            <a href="#" class="btn btn--primary">Inquire About Events</a>
           </div>
-          <a href="#" class="btn btn--primary">Inquire About Events</a>
+          <p class="mid-cta__copy">Tell us your headcount, date range, and format — our events team will respond with availability and a tailored proposal.</p>
         </div>
       </aside>
 

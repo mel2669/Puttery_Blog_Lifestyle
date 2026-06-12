@@ -27,6 +27,7 @@
   --black: #000000;
   --white: #ffffff;
   --cta-red: #E63E62;
+  --hero-cta-ghost: #D12F58;
   --navy: #23395B;
   --card-surface: #F4F1EC;
   --warm-gray: #E8E4DE;
@@ -39,8 +40,8 @@
   --font-body: 'stolzl', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-condensed: 'Alternate Gothic Condensed ATF', 'Arial Narrow', sans-serif;
   --shadow-lift: 0 var(--space-2) var(--space-7) rgba(0, 0, 0, 0.08), 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.04);
-  --tag-at-puttery: #FB9637;
-  --tag-host: #E63E62;
+  --tag-at-puttery: #E63E62;
+  --tag-host: #FB9637;
   --tag-out: #00BFB2;
   --tag-menu: #FEE440;
   --tag-press: #2685E3;
@@ -526,7 +527,7 @@ img {
 
 .category-pill:hover:not(.is-active)[data-category="at-puttery"] {
   background: var(--tag-at-puttery);
-  color: var(--black);
+  color: var(--white);
   border-color: var(--tag-at-puttery);
 }
 
@@ -633,7 +634,6 @@ img {
 
 .tag--at-puttery {
   background: var(--tag-at-puttery);
-  color: var(--black);
 }
 
 .tag--host-with-us {

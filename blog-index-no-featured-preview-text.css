@@ -1,109 +1,114 @@
-/* Blog index — no featured preview text; category nav pre-pink treatment */
+/* Blog index — category nav + hero tag treatment for v2 layout */
 /* Base styles + motion tokens: blog-index-lifestyle.css + blog-index-lifestyle2.css */
 
+/* Post cards — hide excerpt preview text */
+.blog-index-v2 .post-card__excerpt {
+  display: none;
+}
+
 /* Hero category tag — align with headline inset; match post-card tag colors */
-.blog-index-no-preview .hero__tag {
+.blog-index-v2 .hero__tag {
   left: var(--v2-hero-inset);
   border: 2px solid var(--white);
 }
 
-.blog-index-no-preview .hero__tag.tag--at-puttery {
+.blog-index-v2 .hero__tag.tag--at-puttery {
   background: var(--tag-at-puttery);
-  color: var(--black);
+  color: var(--white);
 }
 
-.blog-index-no-preview .hero__tag.tag--host-with-us {
+.blog-index-v2 .hero__tag.tag--host-with-us {
   background: var(--tag-host);
   color: var(--white);
 }
 
-.blog-index-no-preview .hero__tag.tag--out-and-about {
+.blog-index-v2 .hero__tag.tag--out-and-about {
   background: var(--tag-out);
   color: var(--black);
 }
 
-.blog-index-no-preview .hero__tag.tag--the-menu {
+.blog-index-v2 .hero__tag.tag--the-menu {
   background: var(--tag-menu);
   color: var(--black);
 }
 
-.blog-index-no-preview .hero__tag.tag--in-the-press {
+.blog-index-v2 .hero__tag.tag--in-the-press {
   background: var(--tag-press);
   color: var(--white);
 }
 
-.blog-index-no-preview .category-nav {
+.blog-index-v2 .category-nav {
   background: var(--white);
   border-bottom: 1px solid var(--warm-gray);
 }
 
-.blog-index-no-preview .category-pill {
+.blog-index-v2 .category-pill {
   background: var(--white);
   color: var(--black);
 }
 
-.blog-index-no-preview .category-pill[data-category="all"] {
+.blog-index-v2 .category-pill[data-category="all"] {
   border-color: var(--black);
 }
 
-.blog-index-no-preview .category-pill[data-category="at-puttery"] {
+.blog-index-v2 .category-pill[data-category="at-puttery"] {
   border-color: var(--tag-at-puttery);
 }
 
-.blog-index-no-preview .category-pill[data-category="host-with-us"] {
+.blog-index-v2 .category-pill[data-category="host-with-us"] {
   border-color: var(--tag-host);
 }
 
-.blog-index-no-preview .category-pill[data-category="out-and-about"] {
+.blog-index-v2 .category-pill[data-category="out-and-about"] {
   border-color: var(--tag-out);
 }
 
-.blog-index-no-preview .category-pill[data-category="the-menu"] {
+.blog-index-v2 .category-pill[data-category="the-menu"] {
   border-color: var(--tag-menu);
 }
 
-.blog-index-no-preview .category-pill[data-category="in-the-press"] {
+.blog-index-v2 .category-pill[data-category="in-the-press"] {
   border-color: var(--tag-press);
 }
 
 /* All Posts — neutral hover on white nav (category pills use tag colors from lifestyle.css) */
-.blog-index-no-preview .category-pill:hover:not(.is-active)[data-category="all"] {
+.blog-index-v2 .category-pill:hover:not(.is-active)[data-category="all"] {
   background: var(--card-surface);
   color: var(--black);
   border-color: var(--black);
 }
 
-.blog-index-no-preview .category-pill.is-active {
+.blog-index-v2 .category-pill.is-active {
   background: var(--black);
   color: var(--white);
   border-color: var(--black);
 }
 
-.blog-index-no-preview .category-pill.is-active[data-category="at-puttery"] {
+.blog-index-v2 .category-pill.is-active[data-category="at-puttery"] {
   background: var(--tag-at-puttery);
-  color: var(--black);
+  color: var(--white);
   border-color: var(--tag-at-puttery);
 }
 
-.blog-index-no-preview .category-pill.is-active[data-category="host-with-us"] {
+.blog-index-v2 .category-pill.is-active[data-category="host-with-us"] {
   background: var(--tag-host);
   color: var(--white);
   border-color: var(--tag-host);
 }
 
-.blog-index-no-preview .category-pill.is-active[data-category="out-and-about"] {
+.blog-index-v2 .category-pill.is-active[data-category="out-and-about"] {
   background: var(--tag-out);
   color: var(--black);
   border-color: var(--tag-out);
 }
 
-.blog-index-no-preview .category-pill.is-active[data-category="the-menu"] {
+.blog-index-v2 .category-pill.is-active[data-category="the-menu"] {
   background: var(--tag-menu);
   color: var(--black);
   border-color: var(--tag-menu);
 }
 
-.blog-index-no-preview .category-pill.is-active[data-category="in-the-press"] {
+.blog-index-v2 .category-pill.is-active[data-category="in-the-press"] {
   background: var(--tag-press);
   color: var(--white);
   border-color: var(--tag-press);
